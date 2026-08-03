@@ -14,7 +14,9 @@ export function useLenisScroll() {
     });
 
     function raf(time: number) {
-      lenis.raf(time);
+      if (document.body.style.overflow !== 'hidden') {
+        lenis.raf(time);
+      }
       requestAnimationFrame(raf);
     }
 

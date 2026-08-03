@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import {
   Brain,
@@ -17,9 +17,11 @@ import {
   Workflow,
   Zap,
   Palette,
+  LayoutGrid,
 } from 'lucide-react';
 import { SKILL_CATEGORIES } from '@/constants/portfolioData';
 import { SectionReveal } from '@/components/animations/SectionReveal';
+import { Modal } from '@/components/ui/Modal';
 
 // Helper component for rock-solid SVG loading with fallback providers
 const SkillLogo: React.FC<{ skillName: string }> = ({ skillName }) => {
@@ -27,7 +29,7 @@ const SkillLogo: React.FC<{ skillName: string }> = ({ skillName }) => {
   const [imgSrc, setImgSrc] = useState<string | null>(null);
   const [hasError, setHasError] = useState(false);
 
-  if (name.includes('ui') || name.includes('ux') || name.includes('design')) return <Palette className="w-6 h-6 text-[#A288A6]" />;
+  if ((name.includes('ui') || name.includes('ux') || name.includes('design')) && !name.includes('redux')) return <Palette className="w-6 h-6 text-[#A288A6]" />;
   if (name.includes('rag')) return <Search className="w-6 h-6 text-[#A288A6]" />;
   if (name.includes('prompt')) return <Terminal className="w-6 h-6 text-[#A288A6]" />;
   if (name.includes('generative')) return <Sparkles className="w-6 h-6 text-[#A288A6]" />;
@@ -84,6 +86,7 @@ const SkillLogo: React.FC<{ skillName: string }> = ({ skillName }) => {
     if (tech.includes('figma')) return ['https://cdn.simpleicons.org/figma', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg'];
     if (tech.includes('canva')) return ['https://cdn.simpleicons.org/canva', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg'];
     if (tech.includes('bootstrap')) return ['https://cdn.simpleicons.org/bootstrap', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'];
+    if (tech.includes('redux')) return ['https://cdn.simpleicons.org/redux', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg'];
     if (tech.includes('react')) return ['https://cdn.simpleicons.org/react', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'];
     if (tech.includes('next')) return ['https://cdn.simpleicons.org/nextdotjs/F1E3E4', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg'];
     if (tech.includes('tailwind')) return ['https://cdn.simpleicons.org/tailwindcss', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg'];
@@ -125,32 +128,22 @@ const SkillLogo: React.FC<{ skillName: string }> = ({ skillName }) => {
 };
 
 export const SkillsSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>(SKILL_CATEGORIES[0].id);
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [isAllSkillsModalOpen, setIsAllSkillsModalOpen] = useState<boolean>(false);
 
-  const currentCategoryData = SKILL_CATEGORIES.find((cat) => cat.id === activeCategory) || SKILL_CATEGORIES[0];
+  const allSkills = useMemo(() => {
+    return SKILL_CATEGORIES.flatMap((c) => c.skills.map((s) => ({ ...s, categoryId: c.id, categoryName: c.name })));
+  }, []);
 
-  const filteredSkills = searchQuery.trim()
-    ? SKILL_CATEGORIES.flatMap((c) => c.skills).filter((s) =>
-      s.name.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-    : currentCategoryData.skills;
+  const displayedSkills = useMemo(() => {
+    if (activeCategory === 'all') return allSkills;
+    return allSkills.filter((s) => s.categoryId === activeCategory);
+  }, [activeCategory, allSkills]);
 
-  const categoryIcons: Record<string, React.ReactNode> = {
-    'ai-genai': <Brain className="w-4 h-4" />,
-    languages: <Terminal className="w-4 h-4" />,
-    frontend: <Layers className="w-4 h-4" />,
-    backend: <Cpu className="w-4 h-4" />,
-    databases: <Database className="w-4 h-4" />,
-    cloud: <Sparkles className="w-4 h-4" />,
-    infrastructure: <Server className="w-4 h-4" />,
-    realtime: <Zap className="w-4 h-4" />,
-    apis: <Wrench className="w-4 h-4" />,
-    'version-control': <Workflow className="w-4 h-4" />,
-    analytics: <Sparkles className="w-4 h-4" />,
-    design: <Layers className="w-4 h-4" />,
-    productivity: <Boxes className="w-4 h-4" />,
-  };
+  // Split skills into two balanced rows for dual-direction marquee
+  const row1Skills = useMemo(() => displayedSkills.filter((_, i) => i % 2 === 0), [displayedSkills]);
+  const row2Skills = useMemo(() => displayedSkills.filter((_, i) => i % 2 !== 0), [displayedSkills]);
 
   return (
     <section id="skills" className="py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 bg-[#1C1D21]">
@@ -160,78 +153,152 @@ export const SkillsSection: React.FC = () => {
       </div>
 
       {/* Section Header */}
-      <SectionReveal className="text-center max-w-3xl mx-auto space-y-3 mb-14 relative z-10">
+      <SectionReveal className="text-center max-w-3xl mx-auto space-y-3 mb-12 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
           <Wrench className="w-3.5 h-3.5 text-[#A288A6]" />
           <span>02. TECHNICAL STACK</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F1E3E4] tracking-tight">
-          Technologies & <span className="text-gradient">Skills</span>
+          Technologies & <span className="text-gradient">Tools</span>
         </h2>
         <p className="text-sm sm:text-base text-[rgba(241,227,228,0.85)] leading-relaxed">
-          From AI and machine learning to full-stack development and cloud technologies, these are the tools I use to turn ideas into real-world solutions.
+          Hover over any technology icon to inspect details or filter by engineering domain.
         </p>
       </SectionReveal>
 
-      {/* Category Tabs & Search Bar */}
-      <SectionReveal className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
-        <div className="flex flex-wrap items-center justify-center gap-2.5">
-          {SKILL_CATEGORIES.map((cat) => {
-            const isActive = activeCategory === cat.id && !searchQuery;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => {
-                  setActiveCategory(cat.id);
-                  setSearchQuery('');
-                }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono transition-all duration-300 cursor-pointer ${isActive
-                    ? 'bg-[#A288A6] text-[#1C1D21] font-semibold shadow-lg shadow-[#A288A6]/20 border border-[#A288A6]'
-                    : 'bg-[rgba(162,136,166,0.1)] text-[rgba(241,227,228,0.7)] hover:text-[#F1E3E4] hover:bg-[rgba(162,136,166,0.2)] border border-[rgba(204,188,188,0.15)]'
-                  }`}
-              >
-                {categoryIcons[cat.id]}
-                <span>{cat.name}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Search Input */}
-        <div className="relative w-full md:w-64">
-          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[rgba(241,227,228,0.6)]" />
-          <input
-            type="text"
-            placeholder="Search technology..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 rounded-full bg-[rgba(255,255,255,0.03)] border border-[rgba(204,188,188,0.15)] text-xs text-[#F1E3E4] placeholder-[rgba(241,227,228,0.5)] focus:border-[#A288A6] focus:outline-none transition-all"
-          />
-        </div>
+      {/* Category Spotlight Filter Pills */}
+      <SectionReveal className="flex items-center justify-center gap-2 flex-wrap mb-12 relative z-10">
+        <button
+          onClick={() => setActiveCategory('all')}
+          className={`px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-300 cursor-pointer ${
+            activeCategory === 'all'
+              ? 'bg-[#A288A6] text-[#1C1D21] font-semibold shadow-md shadow-[#A288A6]/20 border border-[#A288A6]'
+              : 'bg-[rgba(162,136,166,0.1)] text-[rgba(241,227,228,0.7)] hover:text-[#F1E3E4] border border-[rgba(204,188,188,0.15)]'
+          }`}
+        >
+          All Stack ({allSkills.length})
+        </button>
+        {SKILL_CATEGORIES.map((cat) => (
+          <button
+            key={cat.id}
+            onClick={() => setActiveCategory(cat.id)}
+            className={`px-4 py-1.5 rounded-full text-xs font-mono transition-all duration-300 cursor-pointer ${
+              activeCategory === cat.id
+                ? 'bg-[#A288A6] text-[#1C1D21] font-semibold shadow-md shadow-[#A288A6]/20 border border-[#A288A6]'
+                : 'bg-[rgba(162,136,166,0.1)] text-[rgba(241,227,228,0.7)] hover:text-[#F1E3E4] border border-[rgba(204,188,188,0.15)]'
+            }`}
+          >
+            {cat.name}
+          </button>
+        ))}
       </SectionReveal>
 
-      {/* Robust SVG Skill Logo Badges */}
-      <SectionReveal key={activeCategory + searchQuery} direction="up">
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          {filteredSkills.map((skill, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              whileHover={{ scale: 1.08, y: -3 }}
-              transition={{ duration: 0.2, delay: index * 0.03 }}
-              className="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-[rgba(162,136,166,0.08)] border border-[rgba(204,188,188,0.15)] hover:border-[#A288A6] hover:bg-[rgba(162,136,166,0.18)] hover:shadow-lg hover:shadow-[#A288A6]/10 transition-all duration-300 group cursor-default"
-            >
-              <div className="p-1.5 rounded-xl bg-[#1C1D21] border border-[rgba(204,188,188,0.12)] shrink-0 group-hover:scale-110 transition-transform flex items-center justify-center min-w-9 min-h-9">
-                <SkillLogo skillName={skill.name} />
+      {/* Infinite Dual Marquee Rails Container with Fade Masks */}
+      <div className="relative overflow-hidden py-6 space-y-6">
+        {/* Left & Right Edge Gradient Fades */}
+        <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#1C1D21] to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#1C1D21] to-transparent z-20 pointer-events-none" />
+
+        {/* Row 1: Leftward Scrolling Marquee Rail */}
+        <div className="overflow-hidden">
+          <div className="animate-marquee-left pause-on-hover flex items-center gap-4">
+            {[...row1Skills, ...row1Skills, ...row1Skills].map((skill, idx) => (
+              <div
+                key={`r1-${idx}`}
+                onMouseEnter={() => setHoveredSkill(skill.name)}
+                onMouseLeave={() => setHoveredSkill(null)}
+                className="flex items-center gap-3 px-4 py-3 rounded-2xl glass-morphism-pure border border-[rgba(204,188,188,0.15)] hover:border-[#A288A6] hover:scale-105 transition-all duration-300 group cursor-pointer shrink-0"
+              >
+                <div className="p-2 rounded-xl bg-[#1C1D21] border border-[rgba(204,188,188,0.12)] shrink-0 group-hover:scale-110 transition-transform flex items-center justify-center min-w-9 min-h-9">
+                  <SkillLogo skillName={skill.name} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold text-[#F1E3E4] font-mono group-hover:text-[#BB9BB0] transition-colors">
+                    {skill.name}
+                  </span>
+                  <span className="text-[10px] text-[rgba(241,227,228,0.5)] font-mono">
+                    {skill.categoryName}
+                  </span>
+                </div>
               </div>
-              <span className="text-xs font-bold text-[#F1E3E4] font-mono group-hover:text-[#BB9BB0] transition-colors">
-                {skill.name}
-              </span>
-            </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2: Rightward Scrolling Marquee Rail */}
+        <div className="overflow-hidden">
+          <div className="animate-marquee-right pause-on-hover flex items-center gap-4">
+            {[...row2Skills, ...row2Skills, ...row2Skills].map((skill, idx) => (
+              <div
+                key={`r2-${idx}`}
+                onMouseEnter={() => setHoveredSkill(skill.name)}
+                onMouseLeave={() => setHoveredSkill(null)}
+                className="flex items-center gap-3 px-4 py-3 rounded-2xl glass-morphism-pure border border-[rgba(204,188,188,0.15)] hover:border-[#A288A6] hover:scale-105 transition-all duration-300 group cursor-pointer shrink-0"
+              >
+                <div className="p-2 rounded-xl bg-[#1C1D21] border border-[rgba(204,188,188,0.12)] shrink-0 group-hover:scale-110 transition-transform flex items-center justify-center min-w-9 min-h-9">
+                  <SkillLogo skillName={skill.name} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xs font-bold text-[#F1E3E4] font-mono group-hover:text-[#BB9BB0] transition-colors">
+                    {skill.name}
+                  </span>
+                  <span className="text-[10px] text-[rgba(241,227,228,0.5)] font-mono">
+                    {skill.categoryName}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Show All Modal Trigger Button */}
+      <div className="mt-8 flex justify-center relative z-10">
+        <button
+          onClick={() => setIsAllSkillsModalOpen(true)}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[rgba(162,136,166,0.12)] border border-[rgba(204,188,188,0.2)] text-xs font-mono text-[#F1E3E4] hover:bg-[#A288A6] hover:text-[#1C1D21] hover:font-bold transition-all duration-300 shadow-lg shadow-black/40 group cursor-pointer"
+        >
+          <LayoutGrid className="w-4 h-4 group-hover:scale-110 transition-transform" />
+          <span>Show All Technologies ({allSkills.length})</span>
+        </button>
+      </div>
+
+      {/* Full Tech Stack Grid Modal */}
+      <Modal
+        isOpen={isAllSkillsModalOpen}
+        onClose={() => setIsAllSkillsModalOpen(false)}
+        title="Complete Technical Stack Matrix"
+      >
+        <div className="space-y-8 p-2">
+          <p className="text-xs font-mono text-[rgba(241,227,228,0.7)] leading-relaxed">
+            All 40+ technologies, frameworks, databases, and engineering tools categorized by domain specialization.
+          </p>
+
+          {SKILL_CATEGORIES.map((cat) => (
+            <div key={cat.id} className="space-y-3">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#A288A6] border-b border-[rgba(204,188,188,0.15)] pb-1.5 flex items-center justify-between">
+                <span>{cat.name}</span>
+                <span className="text-[10px] text-[rgba(241,227,228,0.5)] font-normal">{cat.skills.length} skills</span>
+              </h4>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {cat.skills.map((skill, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2.5 p-2.5 rounded-xl bg-[rgba(255,255,255,0.03)] border border-[rgba(204,188,188,0.15)] hover:border-[#A288A6] hover:bg-[rgba(162,136,166,0.15)] transition-all"
+                  >
+                    <div className="p-1 rounded-lg bg-[#1C1D21] border border-[rgba(204,188,188,0.12)] shrink-0 flex items-center justify-center w-7 h-7">
+                      <SkillLogo skillName={skill.name} />
+                    </div>
+                    <span className="text-xs font-mono text-[#F1E3E4] font-medium truncate">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
-      </SectionReveal>
+      </Modal>
     </section>
   );
 };

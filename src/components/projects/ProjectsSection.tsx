@@ -440,32 +440,37 @@ export const ProjectsSection: React.FC = () => {
               <h4 className="text-xs font-mono uppercase tracking-wider text-[#F1E3E4]">Tech Stack</h4>
               <div className="flex flex-wrap gap-2">
                 {activeModalProject.techStack.map((tech, idx) => (
-                  <Badge key={idx} variant="accent" size="sm">
+                  <span
+                    key={idx}
+                    className="px-3 py-1 rounded-full text-xs font-mono bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.2)] text-[#F1E3E4]"
+                  >
                     {tech}
-                  </Badge>
+                  </span>
                 ))}
               </div>
             </div>
 
             {/* Action Buttons */}
             <div className="flex items-center gap-4 pt-4 border-t border-[rgba(204,188,188,0.15)]">
-              <Button
-                variant="primary"
+              <a
                 href={activeModalProject.githubUrl}
-                external
-                icon={<Github className="w-4 h-4" />}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#A288A6] text-[#1C1D21] font-mono text-xs font-bold hover:bg-[#BB9BB0] transition-colors"
               >
-                GitHub Source
-              </Button>
+                <Github className="w-4 h-4" />
+                <span>GitHub Source</span>
+              </a>
               {activeModalProject.liveUrl && (
-                <Button
-                  variant="outline"
+                <a
                   href={activeModalProject.liveUrl}
-                  external
-                  icon={<ExternalLink className="w-4 h-4" />}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-transparent border border-[rgba(204,188,188,0.2)] text-[#F1E3E4] font-mono text-xs hover:border-[#A288A6] hover:text-[#BB9BB0] transition-colors"
                 >
-                  Live Application
-                </Button>
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Live Application</span>
+                </a>
               )}
             </div>
           </div>

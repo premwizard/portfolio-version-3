@@ -24,7 +24,7 @@ export const PERSONAL_INFO = {
   email: "mprem5032@gmail.com",
   github: "https://github.com/alexander-vance-ai",
   linkedin: "https://www.linkedin.com/in/m-prem/",
-  leetcode: "https://leetcode.com/alexvance_ai",
+  leetcode: "https://leetcode.com/u/mprem5032/",
   resumeUrl: "/resume.pdf",
 };
 
@@ -123,34 +123,22 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     ]
   },
   {
-    id: "infrastructure",
-    name: "Networking & Infrastructure",
+    id: "infrastructure-realtime",
+    name: "Networking, Real-Time & Infra",
     skills: [
       { name: "Nginx" },
       { name: "Reverse Proxy" },
       { name: "Proxy Server" },
       { name: "Microservices" },
-    ]
-  },
-  {
-    id: "realtime",
-    name: "Real-Time Communication",
-    skills: [
       { name: "WebSocket" },
       { name: "Socket.IO" },
     ]
   },
   {
-    id: "apis",
-    name: "API Development & Testing",
+    id: "apis-vcs",
+    name: "APIs & Version Control",
     skills: [
       { name: "Postman API" },
-    ]
-  },
-  {
-    id: "version-control",
-    name: "Version Control",
-    skills: [
       { name: "Git" },
       { name: "GitHub" },
     ]

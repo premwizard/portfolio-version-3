@@ -180,3 +180,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   outline: 2px solid #A288A6;
   outline-offset: 2px;
 }
+
+/* Infinite Marquee Animations */
+@keyframes marquee-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 65s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 65s linear infinite;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}
