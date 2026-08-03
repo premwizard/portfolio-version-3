@@ -28,11 +28,13 @@ export interface SkillCategory {
 
 export interface ExperienceItem {
   id: string;
+  category?: 'Experience' | 'Education';
   role: string;
-  company: string;
+  company?: string;
+  organization?: string;
   location: string;
   period: string;
-  type: 'Full-time' | 'Internship' | 'Contract' | 'Research';
+  type: string;
   description: string;
   highlights: string[];
   technologies: string[];
@@ -71,6 +73,6 @@ export interface Testimonial {
   avatar: string;
   content: string;
   rating: number;
-  projectTag: string;
+  projectTag?: string;
   linkedinUrl?: string;
 }

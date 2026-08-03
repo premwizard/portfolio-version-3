@@ -164,7 +164,7 @@ export const SkillsSection: React.FC = () => {
           Technologies & <span className="text-gradient">Skills</span>
         </h2>
         <p className="text-base text-[rgba(241,227,228,0.85)] leading-relaxed">
-          Technologies and frameworks I utilize to architect scalable AI systems.
+          From AI and machine learning to full-stack development and cloud technologies, these are the tools I use to turn ideas into real-world solutions.
         </p>
       </SectionReveal>
 

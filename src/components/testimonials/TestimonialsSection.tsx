@@ -28,10 +28,7 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 relative overflow-hidden bg-[#16171B]">
-      {/* Background Decorative Gradients & Mesh */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#A288A6]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-[rgba(187,155,176,0.08)] rounded-full blur-3xl pointer-events-none" />
+    <section id="testimonials" className="py-24 relative bg-[#1C1D21]">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -45,13 +42,13 @@ export const TestimonialsSection: React.FC = () => {
           >
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
               <Sparkles className="w-3.5 h-3.5 text-[#A288A6]" />
-              <span>Recommendations & Endorsements</span>
+              <span>Testimonials & Recommendations</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F1E3E4] tracking-tight">
-              Client & Leadership <span className="bg-gradient-to-r from-[#F1E3E4] via-[#A288A6] to-[#BB9BB0] bg-clip-text text-transparent">Testimonials</span>
+              What People <span className="bg-gradient-to-r from-[#F1E3E4] via-[#A288A6] to-[#BB9BB0] bg-clip-text text-transparent">Say About Me</span>
             </h2>
             <p className="text-[#F1E3E4]/70 text-base sm:text-lg">
-              Feedback from engineering directors, AI researchers, and CTOs I&apos;ve collaborated with on enterprise systems.
+              Feedback from mentors, colleagues, clients, internship supervisors, and collaborators who have worked with me on AI and software development projects.
             </p>
           </motion.div>
 
@@ -143,10 +140,12 @@ export const TestimonialsSection: React.FC = () => {
                         <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#A288A6]">
-                      <Building2 className="w-3.5 h-3.5" />
-                      <span>{TESTIMONIALS_DATA[currentIndex].projectTag}</span>
-                    </div>
+                    {TESTIMONIALS_DATA[currentIndex].projectTag && (
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#A288A6]">
+                        <Building2 className="w-3.5 h-3.5" />
+                        <span>{TESTIMONIALS_DATA[currentIndex].projectTag}</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Feedback Text */}
@@ -155,20 +154,68 @@ export const TestimonialsSection: React.FC = () => {
                   </blockquote>
 
                   {/* Author Information */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-[rgba(204,188,188,0.1)]">
-                    <img
-                      src={TESTIMONIALS_DATA[currentIndex].avatar}
-                      alt={TESTIMONIALS_DATA[currentIndex].name}
-                      className="w-14 h-14 rounded-full object-cover border-2 border-[#A288A6]/40 shadow-md"
-                    />
-                    <div>
-                      <h4 className="text-base sm:text-lg font-bold text-[#F1E3E4]">
-                        {TESTIMONIALS_DATA[currentIndex].name}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-[#F1E3E4]/70 font-mono">
-                        {TESTIMONIALS_DATA[currentIndex].role} &bull; <span className="text-[#A288A6]">{TESTIMONIALS_DATA[currentIndex].company}</span>
-                      </p>
-                    </div>
+                  <div className="pt-4 border-t border-[rgba(204,188,188,0.1)] flex items-center justify-between">
+                    {TESTIMONIALS_DATA[currentIndex].linkedinUrl ? (
+                      <a
+                        href={TESTIMONIALS_DATA[currentIndex].linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-4 group/author hover:opacity-95 transition-all"
+                        title={`View ${TESTIMONIALS_DATA[currentIndex].name}'s LinkedIn profile`}
+                      >
+                        <div className="relative">
+                          {TESTIMONIALS_DATA[currentIndex].avatar && TESTIMONIALS_DATA[currentIndex].avatar.startsWith('http') ? (
+                            <img
+                              src={TESTIMONIALS_DATA[currentIndex].avatar}
+                              alt={TESTIMONIALS_DATA[currentIndex].name}
+                              className="w-14 h-14 rounded-full object-cover border-2 border-[#A288A6]/40 shadow-md group-hover/author:border-[#0A66C2] transition-colors"
+                            />
+                          ) : (
+                            <div className="w-14 h-14 rounded-full bg-[rgba(162,136,166,0.25)] border-2 border-[#A288A6]/50 flex items-center justify-center text-[#F1E3E4] font-bold text-xl shadow-md font-mono shrink-0 group-hover/author:border-[#0A66C2] transition-colors">
+                              {TESTIMONIALS_DATA[currentIndex].name.charAt(0)}
+                            </div>
+                          )}
+                          <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#0A66C2] rounded-full flex items-center justify-center text-white border border-[#1C1D21] shadow">
+                            <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-0.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                            </svg>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="text-base sm:text-lg font-bold text-[#F1E3E4] group-hover/author:text-[#38BDF8] flex items-center gap-1.5 transition-colors">
+                            <span>{TESTIMONIALS_DATA[currentIndex].name}</span>
+                            <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-[#0A66C2]/20 text-[#38BDF8] border border-[#0A66C2]/40 font-normal">
+                              LinkedIn ↗
+                            </span>
+                          </h4>
+                          <p className="text-xs sm:text-sm text-[#F1E3E4]/70 font-mono">
+                            {TESTIMONIALS_DATA[currentIndex].role} &bull; <span className="text-[#A288A6]">{TESTIMONIALS_DATA[currentIndex].company}</span>
+                          </p>
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="flex items-center gap-4">
+                        {TESTIMONIALS_DATA[currentIndex].avatar && TESTIMONIALS_DATA[currentIndex].avatar.startsWith('http') ? (
+                          <img
+                            src={TESTIMONIALS_DATA[currentIndex].avatar}
+                            alt={TESTIMONIALS_DATA[currentIndex].name}
+                            className="w-14 h-14 rounded-full object-cover border-2 border-[#A288A6]/40 shadow-md"
+                          />
+                        ) : (
+                          <div className="w-14 h-14 rounded-full bg-[rgba(162,136,166,0.25)] border-2 border-[#A288A6]/50 flex items-center justify-center text-[#F1E3E4] font-bold text-xl shadow-md font-mono shrink-0">
+                            {TESTIMONIALS_DATA[currentIndex].name.charAt(0)}
+                          </div>
+                        )}
+                        <div>
+                          <h4 className="text-base sm:text-lg font-bold text-[#F1E3E4]">
+                            {TESTIMONIALS_DATA[currentIndex].name}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-[#F1E3E4]/70 font-mono">
+                            {TESTIMONIALS_DATA[currentIndex].role} &bull; <span className="text-[#A288A6]">{TESTIMONIALS_DATA[currentIndex].company}</span>
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -213,9 +260,11 @@ export const TestimonialsSection: React.FC = () => {
                         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.12)] text-[#A288A6]">
-                      {item.projectTag}
-                    </span>
+                    {item.projectTag && (
+                      <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.12)] text-[#A288A6]">
+                        {item.projectTag}
+                      </span>
+                    )}
                   </div>
 
                   {/* Feedback */}
@@ -225,18 +274,66 @@ export const TestimonialsSection: React.FC = () => {
                 </div>
 
                 {/* Author Info */}
-                <div className="flex items-center gap-3 pt-4 mt-6 border-t border-[rgba(204,188,188,0.1)]">
-                  <img
-                    src={item.avatar}
-                    alt={item.name}
-                    className="w-12 h-12 rounded-full object-cover border border-[#A288A6]/30"
-                  />
-                  <div>
-                    <h5 className="text-sm font-semibold text-[#F1E3E4]">{item.name}</h5>
-                    <p className="text-xs text-[#F1E3E4]/60 font-mono">
-                      {item.role} &bull; <span className="text-[#A288A6]">{item.company}</span>
-                    </p>
-                  </div>
+                <div className="pt-4 mt-6 border-t border-[rgba(204,188,188,0.1)]">
+                  {item.linkedinUrl ? (
+                    <a
+                      href={item.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 group/author hover:opacity-95 transition-all"
+                      title={`View ${item.name}'s LinkedIn profile`}
+                    >
+                      <div className="relative">
+                        {item.avatar && item.avatar.startsWith('http') ? (
+                          <img
+                            src={item.avatar}
+                            alt={item.name}
+                            className="w-12 h-12 rounded-full object-cover border border-[#A288A6]/30 group-hover/author:border-[#0A66C2] transition-colors"
+                          />
+                        ) : (
+                          <div className="w-12 h-12 rounded-full bg-[rgba(162,136,166,0.25)] border border-[#A288A6]/40 flex items-center justify-center text-[#F1E3E4] font-bold text-lg font-mono shrink-0 group-hover/author:border-[#0A66C2] transition-colors">
+                            {item.name.charAt(0)}
+                          </div>
+                        )}
+                        <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#0A66C2] rounded-full flex items-center justify-center text-white border border-[#1C1D21] shadow">
+                          <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 24 24">
+                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-0.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h5 className="text-sm font-semibold text-[#F1E3E4] group-hover/author:text-[#38BDF8] flex items-center gap-1.5 transition-colors">
+                          <span>{item.name}</span>
+                          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-[#0A66C2]/20 text-[#38BDF8] border border-[#0A66C2]/40 font-normal">
+                            LinkedIn ↗
+                          </span>
+                        </h5>
+                        <p className="text-xs text-[#F1E3E4]/60 font-mono">
+                          {item.role} &bull; <span className="text-[#A288A6]">{item.company}</span>
+                        </p>
+                      </div>
+                    </a>
+                  ) : (
+                    <div className="flex items-center gap-3">
+                      {item.avatar && item.avatar.startsWith('http') ? (
+                        <img
+                          src={item.avatar}
+                          alt={item.name}
+                          className="w-12 h-12 rounded-full object-cover border border-[#A288A6]/30"
+                        />
+                      ) : (
+                        <div className="w-12 h-12 rounded-full bg-[rgba(162,136,166,0.25)] border border-[#A288A6]/40 flex items-center justify-center text-[#F1E3E4] font-bold text-lg font-mono shrink-0">
+                          {item.name.charAt(0)}
+                        </div>
+                      )}
+                      <div>
+                        <h5 className="text-sm font-semibold text-[#F1E3E4]">{item.name}</h5>
+                        <p className="text-xs text-[#F1E3E4]/60 font-mono">
+                          {item.role} &bull; <span className="text-[#A288A6]">{item.company}</span>
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

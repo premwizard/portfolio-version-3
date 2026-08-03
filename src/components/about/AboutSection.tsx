@@ -14,13 +14,13 @@ export const AboutSection: React.FC = () => {
       <SectionReveal className="text-center max-w-3xl mx-auto space-y-4 mb-16">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
           <Sparkles className="w-3.5 h-3.5 text-[#A288A6]" />
-          <span>About & Engineering Philosophy</span>
+          <span>About</span>
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F1E3E4] tracking-tight">
-          Pioneering Scalable <span className="text-gradient">Artificial Intelligence</span>
+          Building Intelligent Solutions with<span className="text-gradient">AI & Machine Learning</span>
         </h2>
         <p className="text-base text-[rgba(241,227,228,0.85)] leading-relaxed">
-          Bridging foundational deep learning research with high-efficiency distributed system engineering.
+          Transforming ideas into intelligent applications through Generative AI, Large Language Models, Retrieval-Augmented Generation (RAG), and modern full-stack development.
         </p>
       </SectionReveal>
 
@@ -53,13 +53,13 @@ export const AboutSection: React.FC = () => {
               <h4 className="text-xs font-mono text-[rgba(241,227,228,0.6)] uppercase tracking-widest mb-3">Core Technical Interests</h4>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "Multi-Agent Swarms",
-                  "Low-Latency RAG",
-                  "Quantized Model Serving",
-                  "Vector Databases",
-                  "Distributed Training",
-                  "Neural Architecture Search",
-                  "Edge AI Inference"
+                  "Generative AI",
+                  "Large Language Models",
+                  "Retrieval-Augmented Generation",
+                  "AI Agents",
+                  "Machine Learning",
+                  "Computer Vision",
+                  "Full-Stack AI Development"
                 ].map((interest, i) => (
                   <span
                     key={i}

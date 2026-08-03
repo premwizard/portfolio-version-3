@@ -3,17 +3,23 @@ import { Project, SkillCategory, ExperienceItem, CertificateItem, StatItem, Test
 export const PERSONAL_INFO = {
   name: "PREM M",
   avatar: "/profile.jpg",
-  title: "AI Engineer",
+  title: "AI Engineer | Full-Stack Developer",
   roles: [
     "AI Engineer",
-    "LLM & RAG Architect",
+    "Generative AI Developer",
+    "LLM & RAG Developer",
     "Machine Learning Engineer",
-    "Deep Learning Researcher",
-    "Full-Stack Python Developer"
+    "Full-Stack Python Developer",
+    "MERN Stack Developer"
   ],
-  bio: "Architecting high-throughput LLM pipelines, distributed vector search engines, and enterprise AI agent frameworks. Specialized in productionizing foundation models with microsecond latency.",
-  about: "I am a Senior AI & Machine Learning Engineer with 6+ years of experience engineering scalable artificial intelligence systems, multi-agent frameworks, and high-performance backend infrastructure. Formerly leading ML infrastructure projects, I focus on bridging cutting-edge LLM research into low-latency production applications.",
-  mission: "Democratizing state-of-the-art AI systems through clean architectural patterns, robust model optimization, and performant user experiences.",
+  bio: "Building AI-powered applications using LLMs, RAG, machine learning, and modern full-stack technologies. Passionate about solving real-world problems through intelligent systems and scalable software.",
+
+  about:
+    "I am an AI Engineer passionate about Generative AI, Machine Learning, and Full-Stack Development. I enjoy building production-ready AI applications, developing Retrieval-Augmented Generation (RAG) systems, integrating Large Language Models, and creating scalable web applications. My goal is to bridge AI research with practical software solutions that deliver real-world impact.",
+
+  mission:
+    "To build intelligent, scalable, and accessible AI solutions that empower people, solve meaningful problems, and make advanced artificial intelligence available to everyone.",
+
   location: "Coimbatore, Tamil Nadu, India",
   email: "mprem5032@gmail.com",
   github: "https://github.com/alexander-vance-ai",
@@ -24,28 +30,28 @@ export const PERSONAL_INFO = {
 
 export const STATS_DATA: StatItem[] = [
   {
-    label: "Years Experience",
-    value: 6,
+    label: "Projects Built",
+    value: 20,
     suffix: "+",
-    description: "Building production ML & distributed systems"
+    description: "AI, ML & Full-Stack applications"
   },
   {
-    label: "AI Pipelines Built",
+    label: "AI Applications",
+    value: 10,
+    suffix: "+",
+    description: "LLMs, RAG & intelligent automation"
+  },
+  {
+    label: "Technologies",
     value: 40,
-    suffix: "+",
-    description: "Production LLM, RAG & vision workflows"
-  },
-  {
-    label: "GitHub Stars",
-    value: 1200,
-    suffix: "+",
-    description: "Across open-source AI repos & toolkits"
-  },
-  {
-    label: "Certifications",
-    value: 8,
     suffix: "",
-    description: "Deep Learning, PyTorch, AWS ML & GCP AI"
+    description: "Languages, frameworks & cloud platforms"
+  },
+  {
+    label: "GitHub Contributions",
+    value: 916,
+    suffix: "+", 
+    description: "Active development throughout 2026"
   }
 ];
 
@@ -290,153 +296,467 @@ export const PROJECTS_DATA: Project[] = [
 ];
 
 export const EXPERIENCES_DATA: ExperienceItem[] = [
+  // Experience
   {
     id: "exp-1",
-    role: "Senior AI & Systems Engineer",
-    company: "Apex Cognitive Systems",
-    location: "San Francisco, CA",
-    period: "2023 - Present",
-    type: "Full-time",
-    description: "Leading the core AI Infrastructure team building enterprise multi-agent frameworks, low-latency RAG systems, and self-hosted LLM clusters.",
+    category: "Experience",
+    role: "AI Engineer Intern",
+    organization: "ECLearnix Edtech Private Limited",
+    location: "India",
+    period: "Apr 2026 – Jul 2026",
+    type: "Internship",
+
+    description:
+      "Contributed to the development of AI-powered applications using Generative AI, Machine Learning, Deep Learning, and Large Language Models.",
+
     highlights: [
-      "Architected distributed RAG infrastructure serving 1.5M+ daily queries with 99.98% availability.",
-      "Reduced foundation model inference latency by 40% through vLLM integration and FP8 quantization.",
-      "Mentored a team of 6 ML engineers and published 2 internal technical whitepapers on Agentic Workflows."
+      "Built 4 AI-powered applications including MCP-based AI Agents, Text-to-Design AI, AI UI/UX Automation, and Workflow Automation.",
+      "Integrated LLMs, prompt engineering pipelines, backend APIs, and AI automation workflows.",
+      "Developed scalable and production-ready AI solutions in a collaborative development environment."
     ],
-    technologies: ["PyTorch", "vLLM", "FastAPI", "Qdrant", "Ray", "Kubernetes", "Next.js"]
+
+    technologies: [
+      "Python",
+      "LLMs",
+      "Generative AI",
+      "Machine Learning",
+      "Deep Learning",
+      "Prompt Engineering",
+      "Git"
+    ]
   },
+
   {
     id: "exp-2",
-    role: "Machine Learning Engineer",
-    company: "Neural Scale Labs",
-    location: "Palo Alto, CA",
-    period: "2021 - 2023",
-    type: "Full-time",
-    description: "Engineered computer vision and natural language processing pipelines for automated technical document parsing.",
+    category: "Experience",
+    role: "Web Development Intern",
+    organization: "Zidio Development",
+    location: "Remote",
+    period: "Mar 2026 – May 2026",
+    type: "Internship",
+
+    description:
+      "Developed responsive web applications using modern frontend and backend technologies.",
+
     highlights: [
-      "Trained custom vision-language models achieving SOTA performance on technical diagram extraction.",
-      "Built end-to-end MLOps pipeline on AWS SageMaker with automated model validation & deployment.",
-      "Optimized vector search indexing, cutting infrastructure cloud expenditure by $120K annually."
+      "Built responsive user interfaces.",
+      "Worked on real-world web development projects.",
+      "Focused on clean, maintainable, and scalable code."
     ],
-    technologies: ["Python", "TensorFlow", "Transformers", "Pinecone", "Docker", "AWS SageMaker"]
+
+    technologies: [
+      "React",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Git"
+    ]
   },
+
   {
     id: "exp-3",
-    role: "Full-Stack AI Developer",
-    company: "Synthetix Intelligence",
-    location: "Austin, TX",
-    period: "2019 - 2021",
-    type: "Full-time",
-    description: "Developed interactive web applications driven by NLP models and custom predictive analytics dashboards.",
+    category: "Experience",
+    role: "Full Stack Python Developer Intern",
+    organization: "Code Infinite Technology",
+    location: "Coimbatore, India",
+    period: "Jun 2025",
+    type: "Internship",
+
+    description:
+      "Worked on end-to-end web application development using Python and Django.",
+
     highlights: [
-      "Created modern React/Next.js dashboard interfaces for real-time model telemetry visualization.",
-      "Implemented RESTful microservices in Python & FastAPI connecting web clients to ML inference backends.",
-      "Decreased API payload response times by 55% using async gRPC protocol adapters."
+      "Built full-stack web applications.",
+      "Implemented backend APIs and SQL database integration.",
+      "Improved understanding of software engineering practices."
     ],
-    technologies: ["Python", "TypeScript", "React", "FastAPI", "PostgreSQL", "Redis"]
+
+    technologies: [
+      "Python",
+      "Django",
+      "SQL",
+      "HTML",
+      "CSS"
+    ]
   },
+
   {
     id: "exp-4",
-    role: "AI Research Intern",
-    company: "Stanford Vision & AI Lab",
-    location: "Stanford, CA",
-    period: "2018 - 2019",
-    type: "Research",
-    description: "Researched deep generative models and self-supervised visual representation learning under faculty guidance.",
+    category: "Experience",
+    role: "Machine Learning Intern",
+    organization: "EMGLITZ Technologies",
+    location: "Coimbatore, India",
+    period: "Dec 2024 – Jan 2025",
+    type: "Internship",
+
+    description:
+      "Applied machine learning techniques to solve real-world prediction problems.",
+
     highlights: [
-      "Co-authored research poster on self-supervised contrastive learning for unlabeled medical imagery.",
-      "Developed modular PyTorch benchmarking scripts open-sourced for laboratory researchers."
+      "Performed data preprocessing and visualization.",
+      "Built and evaluated machine learning models.",
+      "Improved prediction accuracy through feature engineering."
     ],
-    technologies: ["Python", "PyTorch", "Scikit-Learn", "OpenCV", "Git"]
+
+    technologies: [
+      "Python",
+      "Machine Learning",
+      "Scikit-learn",
+      "Pandas"
+    ]
+  },
+
+  // Education
+  {
+    id: "edu-1",
+    category: "Education",
+    role: "B.E. Computer Science and Technology",
+    organization: "SNS College of Engineering",
+    location: "Coimbatore, India",
+    period: "2022 – 2026",
+    type: "Bachelor's Degree",
+
+    description:
+      "Built a strong foundation in software engineering, artificial intelligence, machine learning, and full-stack development.",
+
+    highlights: [
+      "Developed multiple AI and web-based projects.",
+      "Focused on Data Structures, Algorithms, AI, and Machine Learning.",
+      "Graduated with practical software development experience."
+    ],
+
+    technologies: [
+      "Python",
+      "Machine Learning",
+      "React",
+      "Node.js",
+      "MongoDB"
+    ]
+  },
+
+  {
+    id: "edu-2",
+    category: "Education",
+    role: "Higher Secondary Certificate (HSC)",
+    organization: "Annai Violet Matric Hr. Sec. School",
+    location: "India",
+    period: "2021 – 2022",
+    type: "Higher Secondary",
+
+    description:
+      "Completed higher secondary education with a focus on Mathematics and Computer Science.",
+
+    highlights: [
+      "Developed analytical thinking.",
+      "Built a strong foundation in mathematics and programming."
+    ],
+
+    technologies: []
+  },
+
+  {
+    id: "edu-3",
+    category: "Education",
+    role: "Secondary School Leaving Certificate (SSLC)",
+    organization: "Brilliant Matric Hr. Sec. School",
+    location: "India",
+    period: "2019 – 2020",
+    type: "Secondary Education",
+
+    description:
+      "Completed secondary education while developing an early interest in technology and programming.",
+
+    highlights: [
+      "Established strong academic fundamentals.",
+      "Developed problem-solving and logical reasoning skills."
+    ],
+
+    technologies: []
   }
 ];
 
 export const CERTIFICATES_DATA: CertificateItem[] = [
   {
     id: "cert-1",
-    title: "Deep Learning Specialization",
-    institution: "DeepLearning.AI / Stanford",
-    issueDate: "2023",
-    credentialId: "DL-AI-9948271",
-    credentialUrl: "https://coursera.org/verify/specialization/DL-AI",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop",
-    skillsAcquired: ["Neural Networks", "CNNs", "RNNs", "Transformers", "Model Optimization"]
+    title: "Microsoft Certified: Azure AI Apps & Agents Developer Associate",
+    institution: "Microsoft",
+    issueDate: "2026",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/microsoft-certified-associate-badge.png",
+    skillsAcquired: ["Azure AI", "AI Agents", "Prompt Engineering", "LLM Integration", "Generative AI"]
   },
   {
     id: "cert-2",
-    title: "AWS Certified Machine Learning - Specialty",
-    institution: "Amazon Web Services",
-    issueDate: "2023",
-    credentialId: "AWS-MLS-772109",
-    credentialUrl: "https://aws.amazon.com/verification",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
-    skillsAcquired: ["SageMaker", "MLOps", "Data Engineering", "Distributed Training", "Security"]
+    title: "Micro-Certification – Agentic AI Executive",
+    institution: "ServiceNow / Executive AI",
+    issueDate: "2026",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/servicenow.png",
+    skillsAcquired: ["Agentic AI", "AI Governance", "Executive Strategy", "Autonomous Agents"]
   },
   {
     id: "cert-3",
-    title: "Generative AI & LLM Systems Architect",
-    institution: "NVIDIA Deep Learning Institute",
-    issueDate: "2024",
-    credentialId: "NV-DLI-882314",
-    credentialUrl: "https://nvidia.com/dli/verify",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop",
-    skillsAcquired: ["vLLM", "TensorRT-LLM", "NeMo", "RAG Optimization", "GPU Parallelism"]
+    title: "Databricks Accredited Generative AI Fundamentals",
+    institution: "Databricks",
+    issueDate: "2026",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/databricks.png",
+    skillsAcquired: ["Generative AI", "Databricks", "LLMs", "Vector Search", "RAG"]
   },
   {
     id: "cert-4",
-    title: "Google Professional Cloud AI Engineer",
-    institution: "Google Cloud Platform",
-    issueDate: "2022",
-    credentialId: "GCP-AI-334910",
-    credentialUrl: "https://cloud.google.com/certification/verify",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop",
-    skillsAcquired: ["Vertex AI", "BigQuery ML", "TensorFlow", "Kubeflow", "ML Governance"]
+    title: "Azure AI Fundamentals",
+    institution: "Microsoft",
+    issueDate: "2026",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/azureai.png",
+    skillsAcquired: ["Azure AI", "Machine Learning", "Computer Vision", "NLP"]
+  },
+  {
+    id: "cert-5",
+    title: "Deep Learning",
+    institution: "DeepLearning.AI",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/DL.jpg",
+    skillsAcquired: ["Neural Networks", "Deep Learning", "CNNs", "Optimization"]
+  },
+  {
+    id: "cert-6",
+    title: "AWS Databricks Platform Architect",
+    institution: "Databricks & AWS",
+    issueDate: "2026",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/databricksaws.png",
+    skillsAcquired: ["AWS", "Databricks", "Platform Architecture", "Data Engineering"]
+  },
+  {
+    id: "cert-7",
+    title: "Cloud Computing",
+    institution: "NPTEL / Online Certification",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/CLOUD  COMMPUTING.jpg",
+    skillsAcquired: ["Cloud Infrastructure", "Distributed Systems", "Virtualization", "AWS"]
+  },
+  {
+    id: "cert-8",
+    title: "Mastering Cloud Engineering with AWS and Python",
+    institution: "CodeSignal",
+    issueDate: "2026",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/codesignalMCEWAWS.png",
+    skillsAcquired: ["AWS", "Python", "Cloud Engineering", "DevOps", "Serverless"]
+  },
+  {
+    id: "cert-9",
+    title: "UI/UX Design Traineeship",
+    institution: "Design Institute",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/UX Design.png",
+    skillsAcquired: ["Figma", "UI Design", "UX Research", "Wireframing", "Prototyping"]
+  },
+  {
+    id: "cert-10",
+    title: "Responsive Web Design",
+    institution: "freeCodeCamp",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/RWD.png",
+    skillsAcquired: ["HTML5", "CSS3", "Responsive Design", "Flexbox", "CSS Grid"]
+  },
+  {
+    id: "cert-11",
+    title: "React.js Unfiltered – AIALCHEMIST",
+    institution: "AIALCHEMIST",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/react.jpg",
+    skillsAcquired: ["React.js", "State Management", "Component Architecture", "Hooks"]
+  },
+  {
+    id: "cert-12",
+    title: "Full-Stack (MERN) App/Web Development Traineeship",
+    institution: "Maiyyam / Full Stack Institute",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/FSD MAiyyam.png",
+    skillsAcquired: ["MongoDB", "Express.js", "React.js", "Node.js", "REST APIs"]
+  },
+  {
+    id: "cert-13",
+    title: "Postman API Fundamentals Student Expert",
+    institution: "Postman",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/postman.png",
+    skillsAcquired: ["API Testing", "Postman", "REST APIs", "API Documentation"]
+  },
+  {
+    id: "cert-14",
+    title: "Introduction to MongoDB",
+    institution: "MongoDB University",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/intro to mongodb.png",
+    skillsAcquired: ["MongoDB", "NoSQL", "Database Queries", "Data Modeling"]
+  },
+  {
+    id: "cert-15",
+    title: "Python Flask",
+    institution: "Certification",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/pythonflask.png",
+    skillsAcquired: ["Python", "Flask", "Backend Development", "REST APIs"]
+  },
+  {
+    id: "cert-16",
+    title: "Prompt Engineering",
+    institution: "Infosys Springboard",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/promptinfosys.png",
+    skillsAcquired: ["Prompt Engineering", "Generative AI", "LLM Optimization", "Context Structuring"]
+  },
+  {
+    id: "cert-17",
+    title: "Natural Language Processing",
+    institution: "Online Certification",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/NLP.jpg",
+    skillsAcquired: ["NLP", "Text Processing", "Tokenization", "Transformers", "Sentiment Analysis"]
+  },
+  {
+    id: "cert-18",
+    title: "Progressive Hands-on App Development",
+    institution: "Certification",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/PWA.jpg",
+    skillsAcquired: ["Progressive Web Apps", "Frontend Development", "Web Performance", "Service Workers"]
+  },
+  {
+    id: "cert-19",
+    title: "Python Essentials 1",
+    institution: "Cisco Networking Academy / Python Institute",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/python essentials 1.png",
+    skillsAcquired: ["Python", "Control Flow", "Functions", "Data Structures"]
+  },
+  {
+    id: "cert-20",
+    title: "Mastering Algorithms and Data Structures in Python",
+    institution: "Udemy / Tech Academy",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/mastering A&DS In python.png",
+    skillsAcquired: ["Algorithms", "Data Structures", "Python", "Problem Solving", "Time Complexity"]
+  },
+  {
+    id: "cert-21",
+    title: "Introduction to Machine Learning: Art of the Possible",
+    institution: "AWS Training",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/intro to ML art of the possible.png",
+    skillsAcquired: ["Machine Learning", "AI Fundamentals", "AWS AI Services"]
+  },
+  {
+    id: "cert-22",
+    title: "Fundamentals of Machine Learning and Artificial Intelligence",
+    institution: "AWS Training",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/fundamentals of MLandAI.png",
+    skillsAcquired: ["Machine Learning", "Artificial Intelligence", "Model Building", "Data Preparation"]
+  },
+  {
+    id: "cert-23",
+    title: "Foundation: Introduction to LangSmith",
+    institution: "LangChain",
+    issueDate: "2026",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/intro to langsmith.png",
+    skillsAcquired: ["LangSmith", "LLM Evaluation", "Tracing", "Debugging", "LangChain"]
+  },
+  {
+    id: "cert-24",
+    title: "Machine Learning Terminology and Process",
+    institution: "AWS Training",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/ml terminology.png",
+    skillsAcquired: ["ML Pipeline", "Feature Engineering", "Model Evaluation", "ML Lifecycle"]
+  },
+  {
+    id: "cert-25",
+    title: "Introduction to Amazon SageMaker",
+    institution: "AWS Training",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/intro to aws sagemaker.png",
+    skillsAcquired: ["Amazon SageMaker", "Model Deployment", "Cloud ML", "AWS"]
+  },
+  {
+    id: "cert-26",
+    title: "Planning a Machine Learning Project",
+    institution: "AWS Training",
+    issueDate: "2025",
+    credentialId: "",
+    credentialUrl: "",
+    image: "/certificates/ML Project AWS.png",
+    skillsAcquired: ["ML Project Management", "Problem Formulation", "Data Strategy", "MLOps"]
   }
 ];
 
 export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: "test-1",
-    name: "Sarah Jenkins",
-    role: "VP of Engineering",
-    company: "ScaleAI Labs",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
-    content: "Prem's expertise in low-latency RAG architectures transformed our entire search pipeline. He reduced our inference latency from 450ms to sub-40ms while scaling to 10M daily requests. A world-class engineer.",
+    name: "Dr.Pravin thangavelu",
+    role: "Executive Director",
+    company: "ECLearnix Edtech Private Limited",
+    avatar: "",
+    content: "It has been a pleasure mentoring Prem during his internship as an AI Engineer. Throughout this period, I was consistently impressed by his dedication, curiosity, and eagerness to learn. He quickly grasped new concepts, took ownership of his responsibilities, and approached every task with a positive attitude. Prem has shown strong potential in AI, machine learning, and software development. He contributed well to project work, demonstrated good problem-solving skills, and was always willing to explore new technologies. I’m confident that with his passion and commitment to continuous learning, he will be a valuable addition to any team and has a bright future ahead.",
     rating: 5,
-    projectTag: "Enterprise RAG Engine",
-    linkedinUrl: "https://linkedin.com"
+    linkedinUrl: "https://www.linkedin.com/in/dr-pravin-thangavelu-32942569/"
   },
   {
     id: "test-2",
-    name: "Dr. Marcus Vance",
-    role: "Head of AI Research",
-    company: "NeuralNode Systems",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
-    content: "Working alongside Prem on multi-agent orchestrations was an absolute pleasure. His deep intuition for vLLM optimization and distributed CUDA workloads is rare to find. Highly recommended!",
+    name: "Gopinath Manickam",
+    role: "Mobile App Developer",
+    company: "ECLearnix Edtech Private Limited",
+    avatar: "",
+    content: "I am delighted to recommend Prem for opportunities in AI Product Engineer. During his internship, Prem consistently demonstrated exceptional learning agility, adaptability, and a strong passion for emerging AI technologies. He quickly grasped new concepts, proactively took ownership of tasks, and showed a remarkable ability to apply his knowledge to real-world challenges. His dedication, curiosity, and continuous improvement mindset make him a promising AI Product Engineer. I am confident that Prem will be a valuable asset to any team and wish him great success in his professional journey.",
     rating: 5,
-    projectTag: "Multi-Agent Platform",
-    linkedinUrl: "https://linkedin.com"
-  },
-  {
-    id: "test-3",
-    name: "Elena Rostova",
-    role: "Product Director",
-    company: "Nexus AI Cloud",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop",
-    content: "Prem delivered our distributed vector search engine weeks ahead of deadline. His clean architecture, thorough testing, and clear communication set the benchmark for engineering excellence.",
-    rating: 5,
-    projectTag: "Vector Search Infrastructure",
-    linkedinUrl: "https://linkedin.com"
-  },
-  {
-    id: "test-4",
-    name: "David Kormann",
-    role: "CTO",
-    company: "Synthetix Automations",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
-    content: "Prem redesigned our ML feature store and model serving layer. His proactive problem solving saved our infra costs by over 40% while doubling output throughput.",
-    rating: 5,
-    projectTag: "MLOps & Feature Store",
-    linkedinUrl: "https://linkedin.com"
+    linkedinUrl: "https://www.linkedin.com/in/gopinath-manickam-941415234/"
   }
 ];
