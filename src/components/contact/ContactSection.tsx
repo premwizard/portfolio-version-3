@@ -94,10 +94,10 @@ export const ContactSection: React.FC = () => {
           <span>07. CONTACT</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F1E3E4] tracking-tight">
-          Let&apos;s Build Something <span className="text-gradient">Extraordinary</span>
+          Get In<span className="text-gradient">Touch</span>
         </h2>
         <p className="text-sm sm:text-base text-[rgba(241,227,228,0.85)] leading-relaxed">
-          Open for AI engineering projects, full-stack development, and technical collaborations.
+          Whether you have an opportunity, a project idea, or simply want to connect, I'd be happy to hear from you.
         </p>
       </SectionReveal>
 
@@ -167,12 +167,7 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[rgba(204,188,188,0.15)]">
-              <h4 className="text-xs font-mono text-[rgba(241,227,228,0.6)] uppercase tracking-widest mb-3">Availability</h4>
-              <p className="text-xs text-[rgba(241,227,228,0.7)] leading-relaxed">
-                Currently taking selected consulting clients for multi-agent LLM system architecture and custom RAG pipeline optimization.
-              </p>
-            </div>
+
           </Card>
         </SectionReveal>
 

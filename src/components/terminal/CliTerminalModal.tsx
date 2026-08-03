@@ -69,9 +69,9 @@ export const CliTerminalModal: React.FC<CliTerminalModalProps> = ({ isOpen, onCl
         response = (
           <div className="space-y-1.5 text-xs text-[#F1E3E4]/90 font-mono">
             <p className="font-bold text-[#A288A6]">Core Engineering Skills:</p>
-            <p>• LLM Architecture: vLLM, RAG, TensorRT-LLM, LangChain, LlamaIndex</p>
-            <p>• Machine Learning: PyTorch, CUDA, Scikit-Learn, Transformers, OpenCV</p>
+            <p>• LLM Architecture: LLM, GenAI, RAG, Prompt Engineering, LangChain, ADK, Ollama, AI, ML    </p>
             <p>• Backend & Infra: Python, FastAPI, Docker, Kubernetes, Vector DBs</p>
+            
           </div>
         );
         break;
