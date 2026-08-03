@@ -58,11 +58,11 @@ export default function Home() {
       <button
         onClick={() => setIsTerminalOpen(true)}
         className="fixed bottom-6 right-6 z-40 p-3 rounded-full bg-[#1C1D21] border border-[#A288A6]/40 text-[#A288A6] hover:bg-[#A288A6] hover:text-[#1C1D21] shadow-2xl transition-all duration-300 group flex items-center gap-2"
-        title="Open Interactive CLI Terminal"
+        title="Open Interactive CLI Playground (Command Terminal)"
       >
         <Terminal className="w-5 h-5" />
         <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 text-xs font-mono font-bold whitespace-nowrap pr-1">
-          Open CLI
+          Interactive CLI Playground
         </span>
       </button>
 
