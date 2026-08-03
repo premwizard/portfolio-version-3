@@ -1,4 +1,4 @@
-import { Project, SkillCategory, ExperienceItem, CertificateItem, StatItem } from '@/types';
+import { Project, SkillCategory, ExperienceItem, CertificateItem, StatItem, Testimonial } from '@/types';
 
 export const PERSONAL_INFO = {
   name: "PREM M",
@@ -344,5 +344,52 @@ export const CERTIFICATES_DATA: CertificateItem[] = [
     credentialUrl: "https://cloud.google.com/certification/verify",
     image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop",
     skillsAcquired: ["Vertex AI", "BigQuery ML", "TensorFlow", "Kubeflow", "ML Governance"]
+  }
+];
+
+export const TESTIMONIALS_DATA: Testimonial[] = [
+  {
+    id: "test-1",
+    name: "Sarah Jenkins",
+    role: "VP of Engineering",
+    company: "ScaleAI Labs",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
+    content: "Prem's expertise in low-latency RAG architectures transformed our entire search pipeline. He reduced our inference latency from 450ms to sub-40ms while scaling to 10M daily requests. A world-class engineer.",
+    rating: 5,
+    projectTag: "Enterprise RAG Engine",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    id: "test-2",
+    name: "Dr. Marcus Vance",
+    role: "Head of AI Research",
+    company: "NeuralNode Systems",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
+    content: "Working alongside Prem on multi-agent orchestrations was an absolute pleasure. His deep intuition for vLLM optimization and distributed CUDA workloads is rare to find. Highly recommended!",
+    rating: 5,
+    projectTag: "Multi-Agent Platform",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    id: "test-3",
+    name: "Elena Rostova",
+    role: "Product Director",
+    company: "Nexus AI Cloud",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop",
+    content: "Prem delivered our distributed vector search engine weeks ahead of deadline. His clean architecture, thorough testing, and clear communication set the benchmark for engineering excellence.",
+    rating: 5,
+    projectTag: "Vector Search Infrastructure",
+    linkedinUrl: "https://linkedin.com"
+  },
+  {
+    id: "test-4",
+    name: "David Kormann",
+    role: "CTO",
+    company: "Synthetix Automations",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
+    content: "Prem redesigned our ML feature store and model serving layer. His proactive problem solving saved our infra costs by over 40% while doubling output throughput.",
+    rating: 5,
+    projectTag: "MLOps & Feature Store",
+    linkedinUrl: "https://linkedin.com"
   }
 ];

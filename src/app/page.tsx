@@ -10,6 +10,7 @@ import { SkillsSection } from '@/components/skills/SkillsSection';
 import { ProjectsSection } from '@/components/projects/ProjectsSection';
 import { ExperienceSection } from '@/components/experience/ExperienceSection';
 import { CertificatesSection } from '@/components/certificates/CertificatesSection';
+import { TestimonialsSection } from '@/components/testimonials/TestimonialsSection';
 import { ContactSection } from '@/components/contact/ContactSection';
 import { Footer } from '@/components/footer/Footer';
 
@@ -20,6 +21,7 @@ const SECTION_IDS = [
   'projects',
   'experience',
   'certificates',
+  'testimonials',
   'contact',
 ];
 
@@ -42,6 +44,7 @@ export default function Home() {
       <ProjectsSection />
       <ExperienceSection />
       <CertificatesSection />
+      <TestimonialsSection />
       <ContactSection />
 
       {/* Footer */}

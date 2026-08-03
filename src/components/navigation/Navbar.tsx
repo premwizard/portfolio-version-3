@@ -17,6 +17,7 @@ const NAV_ITEMS = [
   { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
   { id: 'certificates', label: 'Certificates' },
+  { id: 'testimonials', label: 'Testimonials' },
   { id: 'contact', label: 'Contact' },
 ];
 

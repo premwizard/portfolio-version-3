@@ -62,3 +62,15 @@ export interface ContactFormData {
   subject: string;
   message: string;
 }
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
+  content: string;
+  rating: number;
+  projectTag: string;
+  linkedinUrl?: string;
+}
