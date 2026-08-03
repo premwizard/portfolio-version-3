@@ -1,15 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { PERSONAL_INFO } from "@/constants/portfolioData";
 
-const inter = Inter({
+const geistSans = Geist({
   subsets: ["latin"],
   variable: "--font-geist-sans",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
   display: "swap",
@@ -91,7 +91,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} font-sans scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"

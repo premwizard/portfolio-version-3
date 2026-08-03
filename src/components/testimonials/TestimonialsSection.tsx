@@ -30,7 +30,7 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section id="testimonials" className="py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 bg-[#1C1D21]">
       {/* Decorative Low-Opacity Section Number 06 */}
-      <div className="absolute top-10 right-6 text-7xl sm:text-9xl font-extrabold text-[#F1E3E4]/[0.03] select-none font-mono pointer-events-none">
+      <div className="absolute top-10 right-6 text-7xl sm:text-9xl font-extrabold text-[#F1E3E4]/[0.03] select-none font-mono tracking-tight pointer-events-none">
         06
       </div>
 
@@ -44,14 +44,14 @@ export const TestimonialsSection: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="space-y-3 max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-sans font-semibold text-[#F1E3E4]">
               <Quote className="w-3.5 h-3.5 text-[#A288A6]" />
               <span>06. TESTIMONIALS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F1E3E4] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F1E3E4] tracking-tight font-sans">
               What People <span className="text-gradient">Say About Me</span>
             </h2>
-            <p className="text-sm sm:text-base text-[rgba(241,227,228,0.85)] leading-relaxed">
+            <p className="text-base sm:text-lg text-[rgba(241,227,228,0.85)] leading-relaxed font-sans font-normal">
               Feedback from mentors, colleagues, internship supervisors, and collaborators on software projects.
             </p>
           </motion.div>

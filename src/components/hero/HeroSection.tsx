@@ -49,7 +49,7 @@ export const HeroSection: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F1E3E4]"
+              className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-[#F1E3E4] font-sans"
             >
               Hi, I&apos;m{' '}
               <span className="text-gradient hover:opacity-90 transition-opacity">
@@ -62,10 +62,10 @@ export const HeroSection: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl sm:text-2xl font-mono text-[rgba(241,227,228,0.7)] flex items-center justify-center lg:justify-start gap-2 pt-1"
+              className="text-xl sm:text-2xl font-sans font-semibold text-[rgba(241,227,228,0.7)] flex items-center justify-center lg:justify-start gap-2 pt-1"
             >
               <span>Specialized as</span>
-              <TypingText texts={PERSONAL_INFO.roles} className="text-[#A288A6]" />
+              <TypingText texts={PERSONAL_INFO.roles} className="text-[#A288A6] font-semibold font-sans" />
             </motion.div>
           </div>
 

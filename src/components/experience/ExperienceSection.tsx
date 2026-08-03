@@ -19,20 +19,20 @@ export const ExperienceSection: React.FC = () => {
   return (
     <section id="experience" className="py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 bg-[#1C1D21]">
       {/* Decorative Low-Opacity Section Number 04 */}
-      <div className="absolute top-10 right-6 text-7xl sm:text-9xl font-extrabold text-[#F1E3E4]/[0.03] select-none font-mono pointer-events-none">
+      <div className="absolute top-10 right-6 text-7xl sm:text-9xl font-extrabold text-[#F1E3E4]/[0.03] select-none font-mono tracking-tight pointer-events-none">
         04
       </div>
 
       {/* Section Header */}
       <SectionReveal className="text-center max-w-3xl mx-auto space-y-3 mb-12 relative z-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-sans font-semibold text-[#F1E3E4]">
           <Calendar className="w-3.5 h-3.5 text-[#A288A6]" />
           <span>04. CAREER TIMELINE</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F1E3E4] tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F1E3E4] tracking-tight font-sans">
           Experience & <span className="text-gradient">Education</span>
         </h2>
-        <p className="text-sm sm:text-base text-[rgba(241,227,228,0.85)] leading-relaxed">
+        <p className="text-base sm:text-lg text-[rgba(241,227,228,0.85)] leading-relaxed font-sans font-normal">
           A connected timeline of my academic background, internships, and engineering experience in AI, Machine Learning, and Full-Stack Development.
         </p>
 

@@ -22,10 +22,10 @@ export const PERSONAL_INFO = {
 
   location: "Coimbatore, Tamil Nadu, India",
   email: "mprem5032@gmail.com",
-  github: "https://github.com/alexander-vance-ai",
+  github: "https://github.com/premwizard",
   linkedin: "https://www.linkedin.com/in/m-prem/",
   leetcode: "https://leetcode.com/u/mprem5032/",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/RESUME_PREM_M (6).pdf",
 };
 
 export const STATS_DATA: StatItem[] = [
@@ -144,17 +144,11 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     ]
   },
   {
-    id: "analytics",
-    name: "Data Analytics & BI",
+    id: "analytics-design",
+    name: "Analytics & UI/UX Design",
     skills: [
       { name: "Microsoft Power BI" },
       { name: "Tableau" },
-    ]
-  },
-  {
-    id: "design",
-    name: "UI/UX & Design",
-    skills: [
       { name: "UI/UX" },
       { name: "Figma" },
       { name: "Canva" },
