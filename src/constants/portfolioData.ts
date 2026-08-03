@@ -60,7 +60,6 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "LangChain" },
       { name: "Google Agent Development Kit (ADK)" },
       { name: "Ollama" },
-      { name: "ChromaDB" },
       { name: "Artificial Intelligence" },
       { name: "Machine Learning" },
     ]
@@ -73,7 +72,6 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "TypeScript" },
       { name: "JavaScript" },
       { name: "SQL" },
-      { name: "MySQL" },
     ]
   },
   {

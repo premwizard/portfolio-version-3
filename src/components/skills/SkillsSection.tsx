@@ -16,6 +16,7 @@ import {
   Boxes,
   Workflow,
   Zap,
+  Palette,
 } from 'lucide-react';
 import { SKILL_CATEGORIES } from '@/constants/portfolioData';
 import { SectionReveal } from '@/components/animations/SectionReveal';
@@ -26,11 +27,33 @@ const SkillLogo: React.FC<{ skillName: string }> = ({ skillName }) => {
   const [imgSrc, setImgSrc] = useState<string | null>(null);
   const [hasError, setHasError] = useState(false);
 
+  if (name.includes('ui') || name.includes('ux') || name.includes('design')) return <Palette className="w-6 h-6 text-[#A288A6]" />;
+  if (name.includes('rag')) return <Search className="w-6 h-6 text-[#A288A6]" />;
+  if (name.includes('prompt')) return <Terminal className="w-6 h-6 text-[#A288A6]" />;
+  if (name.includes('generative')) return <Sparkles className="w-6 h-6 text-[#A288A6]" />;
+  if (name.includes('machine learning')) return <Workflow className="w-6 h-6 text-[#A288A6]" />;
+  if (name === 'artificial intelligence' || name === 'ai') return <Brain className="w-6 h-6 text-[#A288A6]" />;
+
+  if (name.includes('chroma')) {
+    return (
+      <img
+        src="/chromadb-icon.png"
+        alt="ChromaDB"
+        className="w-6 h-6 object-contain"
+      />
+    );
+  }
+
   // Map technology names to primary SimpleIcons CDN slugs & Devicon fallbacks
   const getLogoUrls = (tech: string): string[] => {
+    if (tech.includes('chroma')) return [
+      'https://raw.githubusercontent.com/chroma-core/chroma/main/docs/static/img/chroma-logo.redesigned.svg',
+      'https://cdn.simpleicons.org/chromadb',
+      'https://raw.githubusercontent.com/chroma-core/chroma/main/docs/static/img/chroma-logo.svg'
+    ];
     if (tech === 'mysql' || (tech.includes('mysql') && !tech.includes('azure'))) return ['https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', 'https://cdn.simpleicons.org/mysql'];
-    if (tech === 'sql') return ['https://cdn.simpleicons.org/sqlite', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg'];
-    if (tech.includes('chroma')) return ['https://raw.githubusercontent.com/chroma-core/chroma/main/docs/static/img/chroma-logo.svg', 'https://cdn.simpleicons.org/chromadb'];
+    if (tech.includes('sql') && !tech.includes('mysql') && !tech.includes('pgsql') && !tech.includes('postgres')) return ['https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg', 'https://cdn.simpleicons.org/mysql'];
+    if (tech.includes('chroma')) return ['https://cdn.simpleicons.org/chromadb'];
     if (tech.includes('postgres') || tech.includes('pgsql')) return ['https://cdn.simpleicons.org/postgresql', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg'];
     if (tech.includes('python')) return ['https://cdn.simpleicons.org/python', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'];
     if (tech.includes('pytorch')) return ['https://cdn.simpleicons.org/pytorch', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg'];
@@ -85,7 +108,7 @@ const SkillLogo: React.FC<{ skillName: string }> = ({ skillName }) => {
 
   if (!primaryUrl || hasError) {
     if (name.includes('rag') || name.includes('generative') || name.includes('prompt') || name.includes('ai')) return <Brain className="w-6 h-6 text-[#A288A6]" />;
-    if (name.includes('vector') || name.includes('chroma') || name.includes('database')) return <Database className="w-6 h-6 text-[#A288A6]" />;
+    if (name.includes('vector') || name.includes('database')) return <Database className="w-6 h-6 text-[#A288A6]" />;
     if (name.includes('api') || name.includes('proxy') || name.includes('microservices')) return <Server className="w-6 h-6 text-[#A288A6]" />;
     return <Code2 className="w-6 h-6 text-[#A288A6]" />;
   }
@@ -109,8 +132,8 @@ export const SkillsSection: React.FC = () => {
 
   const filteredSkills = searchQuery.trim()
     ? SKILL_CATEGORIES.flatMap((c) => c.skills).filter((s) =>
-        s.name.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+      s.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     : currentCategoryData.skills;
 
   const categoryIcons: Record<string, React.ReactNode> = {
@@ -157,11 +180,10 @@ export const SkillsSection: React.FC = () => {
                   setActiveCategory(cat.id);
                   setSearchQuery('');
                 }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono transition-all duration-300 cursor-pointer ${
-                  isActive
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono transition-all duration-300 cursor-pointer ${isActive
                     ? 'bg-[#A288A6] text-[#1C1D21] font-semibold shadow-lg shadow-[#A288A6]/20 border border-[#A288A6]'
                     : 'bg-[rgba(162,136,166,0.1)] text-[rgba(241,227,228,0.7)] hover:text-[#F1E3E4] hover:bg-[rgba(162,136,166,0.2)] border border-[rgba(204,188,188,0.15)]'
-                }`}
+                  }`}
               >
                 {categoryIcons[cat.id]}
                 <span>{cat.name}</span>
