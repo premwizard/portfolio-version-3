@@ -105,7 +105,34 @@ export const HeroSection: React.FC = () => {
             </Button>
           </motion.div>
 
-          
+          {/* Social Links Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex items-center justify-center lg:justify-start gap-4 pt-4 border-t border-[rgba(204,188,188,0.15)]"
+          >
+            <span className="text-xs text-[rgba(241,227,228,0.6)] uppercase font-mono tracking-wider">Connect:</span>
+            <div className="flex items-center gap-3">
+              {[
+                { icon: <Github className="w-4 h-4" />, href: PERSONAL_INFO.github, label: 'GitHub' },
+                { icon: <Linkedin className="w-4 h-4" />, href: PERSONAL_INFO.linkedin, label: 'LinkedIn' },
+                { icon: <Mail className="w-4 h-4" />, href: `mailto:${PERSONAL_INFO.email}`, label: 'Email' },
+                { icon: <Code className="w-4 h-4" />, href: PERSONAL_INFO.leetcode, label: 'LeetCode' },
+              ].map((s, idx) => (
+                <a
+                  key={idx}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-9 h-9 rounded-full bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.15)] flex items-center justify-center text-[#A288A6] hover:text-[#BB9BB0] hover:border-[#A288A6]/40 hover:bg-[rgba(162,136,166,0.2)] transition-all duration-300"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
         {/* Right Column: Animated Profile & Floating Nodes */}

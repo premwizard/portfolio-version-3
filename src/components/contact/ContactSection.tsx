@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Send, CheckCircle2, MessageSquare, User, Sparkles, Phone } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, MessageSquare, User, Sparkles, Phone, Copy, Check } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { PERSONAL_INFO } from '@/constants/portfolioData';
 import { ContactFormData } from '@/types';
@@ -11,12 +11,19 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
 export const ContactSection: React.FC = () => {
+  const [copiedEmail, setCopiedEmail] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     subject: '',
     message: '',
   });
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(PERSONAL_INFO.email);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2500);
+  };
 
   const [errors, setErrors] = useState<Partial<ContactFormData>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -100,19 +107,38 @@ export const ContactSection: React.FC = () => {
             </h3>
 
             <div className="space-y-4">
-              <div className="flex items-start gap-4 p-3 rounded-xl bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.12)]">
-                <div className="w-10 h-10 rounded-lg bg-[rgba(162,136,166,0.15)] border border-[#A288A6]/30 flex items-center justify-center text-[#A288A6] shrink-0">
-                  <Mail className="w-5 h-5" />
+              <div className="flex items-center justify-between gap-4 p-3.5 rounded-xl bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.12)]">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-[rgba(162,136,166,0.15)] border border-[#A288A6]/30 flex items-center justify-center text-[#A288A6] shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-mono text-[rgba(241,227,228,0.6)] uppercase">Direct Email</h4>
+                    <a
+                      href={`mailto:${PERSONAL_INFO.email}`}
+                      className="text-sm font-semibold text-[#F1E3E4] hover:text-[#BB9BB0] transition-colors"
+                    >
+                      {PERSONAL_INFO.email}
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-xs font-mono text-[rgba(241,227,228,0.6)] uppercase">Direct Email</h4>
-                  <a
-                    href={`mailto:${PERSONAL_INFO.email}`}
-                    className="text-sm font-semibold text-[#F1E3E4] hover:text-[#BB9BB0] transition-colors"
-                  >
-                    {PERSONAL_INFO.email}
-                  </a>
-                </div>
+                <button
+                  onClick={handleCopyEmail}
+                  className="px-2.5 py-1.5 rounded-lg bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#A288A6] hover:bg-[#A288A6] hover:text-[#1C1D21] transition-all flex items-center gap-1.5 shrink-0"
+                  title="Copy email to clipboard"
+                >
+                  {copiedEmail ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="text-emerald-400 font-bold">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
               </div>
 
               <div className="flex items-start gap-4 p-3 rounded-xl bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.12)]">

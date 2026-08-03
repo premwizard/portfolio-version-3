@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: `${PERSONAL_INFO.name} Portfolio`,
     images: [
       {
-        url: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
+        url: PERSONAL_INFO.avatar || "/profile.jpg",
         width: 1200,
         height: 630,
         alt: `${PERSONAL_INFO.name} Portfolio Cover`,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${PERSONAL_INFO.name} | Staff AI & Systems Engineer`,
     description: PERSONAL_INFO.bio,
-    images: ["https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop"],
+    images: [PERSONAL_INFO.avatar || "/profile.jpg"],
   },
 };
 

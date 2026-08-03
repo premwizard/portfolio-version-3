@@ -2,12 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Cpu, FileText } from 'lucide-react';
+import { Menu, X, Cpu, FileText, Terminal } from 'lucide-react';
 import { PERSONAL_INFO } from '@/constants/portfolioData';
 import { Button } from '@/components/ui/Button';
 
 interface NavbarProps {
   activeSection: string;
+  onOpenTerminal?: () => void;
 }
 
 const NAV_ITEMS = [
@@ -21,7 +22,7 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, onOpenTerminal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -104,7 +105,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         </nav>
 
         {/* Action Button */}
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-2.5">
+          {onOpenTerminal && (
+            <button
+              onClick={onOpenTerminal}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#A288A6] hover:bg-[#A288A6] hover:text-[#1C1D21] transition-all"
+              title="Open CLI Terminal Playground"
+            >
+              <Terminal className="w-3.5 h-3.5" />
+              <span>CLI</span>
+            </button>
+          )}
           <Button
             variant="outline"
             size="sm"
