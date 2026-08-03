@@ -15,30 +15,30 @@ export const AboutSection: React.FC = () => {
         01
       </div>
 
-      {/* Main Two-Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-        {/* Left Column: Heading, Vertical Accent & Content */}
-        <div className="lg:col-span-7 space-y-8">
-          <SectionReveal direction="left" className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(162,136,166,0.12)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
-              <Sparkles className="w-3.5 h-3.5 text-[#A288A6]" />
-              <span>01. ABOUT ME</span>
-            </div>
+      {/* Top Full-Width Header Block */}
+      <SectionReveal direction="left" className="space-y-4 mb-12 relative z-10">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(162,136,166,0.12)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
+          <Sparkles className="w-3.5 h-3.5 text-[#A288A6]" />
+          <span>01. ABOUT ME</span>
+        </div>
 
-            {/* Left-Aligned Heading with Vertical Accent Line */}
-            <div className="flex items-stretch gap-4">
-              <div className="w-1.5 rounded-full bg-gradient-to-b from-[#A288A6] via-[#BB9BB0] to-transparent shrink-0" />
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F1E3E4] tracking-tight leading-tight">
-                Building Intelligent Solutions with <span className="text-gradient">AI & Machine Learning</span>
-              </h2>
-            </div>
+        {/* Left-Aligned Single Line Heading with Vertical Accent Line */}
+        <div className="flex items-center gap-4">
+          <div className="w-1.5 h-8 sm:h-10 rounded-full bg-gradient-to-b from-[#A288A6] via-[#BB9BB0] to-transparent shrink-0" />
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#F1E3E4] tracking-tight leading-snug">
+            Building Intelligent Solutions with <span className="text-gradient">AI & Machine Learning</span>
+          </h2>
+        </div>
 
-            <p className="text-base text-[rgba(241,227,228,0.85)] leading-relaxed pl-5">
-              Transforming ideas into intelligent applications through Generative AI, Large Language Models, Retrieval-Augmented Generation (RAG), and modern full-stack development.
-            </p>
-          </SectionReveal>
+        <p className="text-sm sm:text-base text-[rgba(241,227,228,0.85)] leading-relaxed pl-5 max-w-4xl">
+          Transforming ideas into intelligent applications through Generative AI, Large Language Models, Retrieval-Augmented Generation (RAG), and modern full-stack development.
+        </p>
+      </SectionReveal>
 
-          {/* Bio & Mission Content Card */}
+      {/* Main Two-Column Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
+        {/* Left Column: Bio & Mission Content Card */}
+        <div className="lg:col-span-7">
           <SectionReveal direction="left" delay={0.1}>
             <div className="glass-card p-8 space-y-6">
               <div className="space-y-3">

@@ -126,13 +126,15 @@ body {
   border-radius: 24px;
 }
 
-/* Section Dividers */
+/* Section Dividers - Clean & Uniform Across All Sections */
 .section-divider {
   height: 1px;
   width: 100%;
   max-width: 80rem;
   margin: 0 auto;
-  background: linear-gradient(90deg, transparent 0%, rgba(204, 188, 188, 0.15) 30%, rgba(162, 136, 166, 0.3) 50%, rgba(204, 188, 188, 0.15) 70%, transparent 100%);
+  position: relative;
+  z-index: 20;
+  background: rgba(204, 188, 188, 0.18);
 }
 
 .glass-nav {
