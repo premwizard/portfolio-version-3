@@ -4,14 +4,19 @@ export interface Project {
   tagline: string;
   description: string;
   fullDescription: string;
-  category: 'AI' | 'Machine Learning' | 'Full Stack' | 'Backend';
+  category: string;
   featured: boolean;
-  image: string;
+  image?: string;
   techStack: string[];
   features: string[];
   githubUrl: string;
   liveUrl?: string;
   metrics?: string;
+  status?: 'Production Ready' | 'In Progress' | 'Personal Project' | 'Internship Project';
+  language?: string;
+  repoType?: 'Public' | 'Private';
+  lastUpdated?: string;
+  version?: string;
 }
 
 export interface SkillCategory {

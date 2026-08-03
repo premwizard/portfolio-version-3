@@ -92,13 +92,13 @@ body {
   transform: translateY(-2px);
 }
 
-/* Card Variations using strict existing palette */
-.glass-card-light {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(204, 188, 188, 0.1);
-  border-radius: 16px;
+.glass-morphism-pure {
+  background: rgba(28, 29, 33, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(204, 188, 188, 0.15);
+  border-top: 1px solid rgba(241, 227, 228, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
 .glass-card-featured {

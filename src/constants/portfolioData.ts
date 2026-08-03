@@ -23,7 +23,7 @@ export const PERSONAL_INFO = {
   location: "Coimbatore, Tamil Nadu, India",
   email: "mprem5032@gmail.com",
   github: "https://github.com/alexander-vance-ai",
-  linkedin: "https://linkedin.com/in/alexander-vance-ai",
+  linkedin: "https://www.linkedin.com/in/m-prem/",
   leetcode: "https://leetcode.com/alexvance_ai",
   resumeUrl: "/resume.pdf",
 };
@@ -176,122 +176,289 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: "neuro-mesh",
-    title: "NeuroMesh Agentic Orchestrator",
-    tagline: "Autonomous multi-agent LLM framework with DAG execution and dynamic memory consolidation.",
-    description: "An enterprise-grade autonomous multi-agent orchestration engine featuring persistent memory, tool retrieval using HNSW vector indexing, and asynchronous parallel execution.",
-    fullDescription: "NeuroMesh enables autonomous LLM agents to collaborate on multi-step reasoning workflows. Powered by vLLM inference engine, LangGraph routing, and Qdrant vector memory, it reduces agent loop overhead by 45% while handling up to 10,000 parallel sub-tasks.",
+    id: "task-updater-ai",
+    title: "Task Updater AI",
+    tagline: "AI-powered daily work reporting and productivity management system.",
+    description:
+      "An intelligent work reporting platform that automates daily status updates, summarizes completed tasks, and helps teams maintain consistent progress tracking using Generative AI.",
+    fullDescription:
+      "Task Updater AI streamlines daily reporting by leveraging LLMs to generate structured work summaries, monitor project progress, and improve collaboration. Built with a modern full-stack architecture, it reduces manual reporting effort while providing clear insights into individual and team productivity.",
+    category: "Generative AI",
+    featured: true,
+    image: "/projects/task-updater-ai.png",
+    techStack: [
+      "Python",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "Supabase",
+      "LLM",
+      "Prompt Engineering"
+    ],
+    features: [
+      "AI-generated daily work reports",
+      "Automated task summarization",
+      "Progress tracking dashboard",
+      "Team productivity insights"
+    ],
+    githubUrl: "https://github.com/premwizard/Task-Reporter-AI",
+    liveUrl: "https://task-reporter-ai.vercel.app/",
+    metrics: "AI-powered reporting & workflow automation"
+  },
+
+  {
+    id: "text-to-design",
+    title: "Text to Design AI",
+    tagline: "Generate modern UI designs directly from natural language prompts.",
+    description:
+      "An AI-powered platform that converts text prompts into responsive website layouts and UI concepts using Large Language Models.",
+    fullDescription:
+      "Text to Design enables users to rapidly prototype interfaces by describing them in plain English. The application generates structured layouts, reusable UI components, and frontend-ready designs, helping designers and developers accelerate product development.",
     category: "AI",
     featured: true,
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
-    techStack: ["Python", "PyTorch", "FastAPI", "vLLM", "Qdrant", "LangChain", "Redis"],
-    features: [
-      "Dynamic DAG workflow planning with topological sorting",
-      "Asynchronous streaming tool invocation over gRPC",
-      "Hierarchical memory storage (short-term KV cache + long-term vector embeddings)",
-      "Built-in telemetry & trace visualization with Jaeger & MLflow"
+    image: "/projects/text-to-design.png",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Google ADK",
+      "Generative AI",
+      "Prompt Engineering"
     ],
-    githubUrl: "https://github.com/alexander-vance-ai/neuromesh-orchestrator",
-    liveUrl: "https://neuromesh-demo.vercel.app",
-    metrics: "45% faster execution, 12k+ monthly API queries"
+    features: [
+      "Prompt-to-UI generation",
+      "Responsive layout creation",
+      "Modern component generation",
+      "Rapid design prototyping"
+    ],
+    githubUrl: "https://github.com/premwizard/Text-to-Design",
+    liveUrl: "https://synapseai-ebon.vercel.app/",
+    metrics: "AI-powered UI generation platform"
   },
+
   {
-    id: "quant-vision-rag",
-    title: "QuantVision Multimodal RAG Engine",
-    tagline: "Ultra-low latency vision-language retrieval engine for technical diagrams and financial charts.",
-    description: "Hybrid multimodal RAG pipeline extracting semantic knowledge from technical schematics, PDF tables, and chart metrics using ColPali and Qwen2-VL.",
-    fullDescription: "Built for automated document understanding in finance and engineering, QuantVision combines visual layout embeddings with BM25 keyword matching for hybrid retrieval. Achieves sub-150ms retrieval latencies across 1M+ indexed documents.",
-    category: "Machine Learning",
+    id: "prompt-vault",
+    title: "PromptVault AI",
+    tagline: "Intelligent prompt management and organization platform.",
+    description:
+      "A centralized application for storing, organizing, searching, and managing AI prompts with categories, tags, and reusable collections.",
+    fullDescription:
+      "PromptVault AI helps developers and AI engineers efficiently manage prompt libraries through intelligent categorization, search capabilities, and version control, making prompt engineering workflows faster and more organized.",
+    category: "AI",
     featured: true,
-    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1200&auto=format&fit=crop",
-    techStack: ["Python", "Transformers", "Milvus", "FastAPI", "React", "Tailwind CSS"],
-    features: [
-      "Visual document indexing with vision-transformer embeddings",
-      "Hybrid retrieval combining dense vector search and BM25 sparse scoring",
-      "Real-time PDF page bounding-box highlighting",
-      "Custom fine-tuned reranker model trained on domain technical papers"
+    image: "/projects/prompt-vault.png",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Generative AI"
     ],
-    githubUrl: "https://github.com/alexander-vance-ai/quantvision-rag",
-    liveUrl: "https://quantvision.vercel.app",
-    metrics: "Sub-150ms retrieval, 98.4% retrieval accuracy"
-  },
-  {
-    id: "hyper-vector-db",
-    title: "HyperVector C++ Indexer",
-    tagline: "High-performance SIMD-accelerated C++ vector indexer with AVX-512 optimization.",
-    description: "An ultra-fast, lightweight vector indexing engine written in modern C++20 with Python bindings, implementing Product Quantization (PQ) and HNSW graph search.",
-    fullDescription: "HyperVector provides bare-metal performance for local vector operations. Utilizing Intel AVX-512 vector instructions and cache-aligned SIMD routines, it yields 3.2x faster query throughput compared to baseline FAISS implementations.",
-    category: "Backend",
-    featured: true,
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop",
-    techStack: ["C++20", "Python", "pybind11", "OpenMP", "CMake", "Google Test"],
     features: [
-      "SIMD-accelerated L2 cosine distance computations",
-      "Thread-safe HNSW graph insertion with fine-grained locking",
-      "Zero-copy Python integration via pybind11 buffers",
-      "Quantization compression shrinking index footprint by 75%"
+      "Prompt organization",
+      "Advanced search",
+      "Categories & tags",
+      "Reusable prompt collections"
     ],
-    githubUrl: "https://github.com/alexander-vance-ai/hypervector-cpp",
-    metrics: "3.2x FAISS throughput, 75% memory footprint reduction"
+    githubUrl: "https://github.com/premwizard/PromptVault-AI",
+    liveUrl: "https://prompt-vault-ai-omega.vercel.app/",
+    metrics: "Centralized AI prompt management"
   },
+
   {
-    id: "cortex-studio",
-    title: "Cortex AI Workflow Studio",
-    tagline: "Full-stack visual node editor for prompt engineering and model evaluation.",
-    description: "A sleek, node-based web application allowing developers to compose, test, benchmark, and deploy complex LLM prompt chains and evaluation pipelines.",
-    fullDescription: "Cortex Studio bridges the gap between AI engineers and product builders. Featuring real-time execution graphs, token cost estimators, auto-evaluations with GPT-4-as-a-judge, and one-click FastAPI endpoint generation.",
+    id: "ai-job-finder",
+    title: "AI Job Finder",
+    tagline: "AI-powered platform for discovering relevant job opportunities.",
+    description:
+      "A smart job search platform that helps users find suitable roles using AI-based recommendations and intelligent filtering.",
+    fullDescription:
+      "AI Job Finder simplifies the job search process by combining intelligent recommendations, modern search capabilities, and an intuitive user experience to connect users with relevant opportunities.",
     category: "Full Stack",
     featured: true,
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-    techStack: ["Next.js 15", "TypeScript", "Tailwind CSS", "ReactFlow", "FastAPI", "PostgreSQL"],
-    features: [
-      "Drag-and-drop node graph canvas with custom node runtime",
-      "Real-time token cost breakdown and streaming output visualizer",
-      "Automated prompt versioning and regression testing suite",
-      "Serverless deployment to cloud REST endpoints"
+    image: "/projects/ai-job-finder.png",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Supabase",
+      "AI"
     ],
-    githubUrl: "https://github.com/alexander-vance-ai/cortex-studio",
-    liveUrl: "https://cortex-studio-demo.vercel.app",
-    metrics: "Over 500+ active developer nodes created"
+    features: [
+      "AI-powered recommendations",
+      "Advanced job search",
+      "Modern dashboard",
+      "Responsive interface"
+    ],
+    githubUrl: "https://github.com/premwizard/AI-Job-Finder",
+    liveUrl: "https://ai-job-finder-flame.vercel.app/",
+    metrics: "Smart AI-assisted job discovery"
   },
+
   {
-    id: "deep-sentinel-cv",
-    title: "DeepSentinel Anomaly Detection",
-    tagline: "Real-time edge computer vision anomaly detection system for industrial IoT.",
-    description: "Convolutional autoencoder model deployed on NVIDIA Jetson devices for instant defect classification in manufacturing assembly lines.",
-    fullDescription: "Built with PyTorch and TensorRT, DeepSentinel analyzes 60 FPS video streams to detect structural defects and anomalies down to sub-millimeter scales with zero cloud dependency.",
+    id: "medisync360",
+    title: "MediSync360",
+    tagline: "AI-assisted healthcare management platform.",
+    description:
+      "A healthcare application focused on patient management, intelligent health monitoring, and medical record organization.",
+    fullDescription:
+      "MediSync360 integrates healthcare workflows with AI-powered features to improve patient management, medical record accessibility, and healthcare monitoring.",
+    category: "Healthcare AI",
+    featured: false,
+    image: "/projects/medisync360.png",
+    techStack: [
+      "Python",
+      "React",
+      "MongoDB",
+      "Machine Learning",
+      "Flask"
+    ],
+    features: [
+      "Patient management",
+      "Health record system",
+      "AI-assisted healthcare",
+      "Medical data management"
+    ],
+    githubUrl: "https://github.com/premwizard/Medisync360",
+    metrics: "Healthcare management solution"
+  },
+
+  {
+    id: "ticket-assets",
+    title: "Ticket & Asset Management System",
+    tagline: "Enterprise asset tracking and IT ticket management platform.",
+    description:
+      "A modern system for managing organizational assets, service requests, and support tickets with role-based access.",
+    fullDescription:
+      "Built to streamline IT operations by combining asset inventory, ticket management, reporting, and workflow automation into one centralized platform.",
+    category: "Full Stack",
+    featured: false,
+    image: "/projects/ticket-system.png",
+    techStack: [
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "Supabase"
+    ],
+    features: [
+      "Asset management",
+      "Ticket tracking",
+      "Role-based access",
+      "Reporting dashboard"
+    ],
+    githubUrl: "https://github.com/premwizard/Ticket-and-Asset-Management-System",
+    liveUrl:
+      "https://ticket-and-asset-management-system-premwizards-projects.vercel.app/",
+    metrics: "Enterprise IT management platform"
+  },
+
+  {
+    id: "music-therapy",
+    title: "Music Therapy AI",
+    tagline: "AI-driven music recommendation for emotional well-being.",
+    description:
+      "A machine learning application that recommends personalized music based on mood and emotional analysis.",
+    fullDescription:
+      "Music Therapy AI uses AI models to analyze emotional states and recommend suitable music playlists that enhance relaxation, focus, or motivation.",
     category: "Machine Learning",
     featured: false,
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-    techStack: ["Python", "PyTorch", "TensorRT", "OpenCV", "Docker", "MQTT"],
-    features: [
-      "Spatial autoencoder with structural similarity loss (SSIM)",
-      "Hardware-accelerated inference with TensorRT FP16 quantization",
-      "Edge-to-cloud telemetry sync with low latency MQTT",
-      "Automated dataset drift detection and retraining trigger"
+    image: "/projects/music-therapy.png",
+    techStack: [
+      "Python",
+      "Machine Learning",
+      "Flask",
+      "React"
     ],
-    githubUrl: "https://github.com/alexander-vance-ai/deepsentinel-cv",
-    metrics: "60 FPS edge inference, 99.1% anomaly recall"
+    features: [
+      "Mood prediction",
+      "Personalized music recommendations",
+      "Emotion analysis",
+      "Interactive dashboard"
+    ],
+    githubUrl: "https://github.com/premwizard/Music-Therapy-AI",
+    metrics: "AI-based music recommendation system"
   },
+
   {
-    id: "synergy-llm-serving",
-    title: "Synergy LLM Gateway & Load Balancer",
-    tagline: "Enterprise API gateway for intelligent LLM routing, fallback, and semantic caching.",
-    description: "High-performance Rust/Node.js reverse proxy that caches LLM responses semantically using vector similarity and load balances requests across Anthropic, OpenAI, and self-hosted vLLM nodes.",
-    fullDescription: "Synergy eliminates redundant LLM API costs by serving semantic cache hits from Redis + Milvus within 12ms. Features automated rate limiting, failover routing, and cost budgeting per tenant.",
-    category: "Backend",
+    id: "wearable-ai",
+    title: "Wearable AI Monitor System",
+    tagline: "Smart wearable health monitoring using AI.",
+    description:
+      "A wearable monitoring platform that collects health data and provides intelligent insights through machine learning.",
+    fullDescription:
+      "Designed to support continuous health monitoring by combining wearable sensor data with AI models to detect anomalies and visualize health trends.",
+    category: "Machine Learning",
     featured: false,
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop",
-    techStack: ["TypeScript", "Node.js", "Redis", "Milvus", "Docker", "Prometheus"],
-    features: [
-      "Semantic vector cache delivering sub-15ms cached responses",
-      "Dynamic cost-aware load balancing between model vendors",
-      "Token usage throttling and tenant cost allocation dashboard",
-      "Zero-downtime hot reloading of route configurations"
+    image: "/projects/wearable-ai.png",
+    techStack: [
+      "Python",
+      "Machine Learning",
+      "React",
+      "MongoDB"
     ],
-    githubUrl: "https://github.com/alexander-vance-ai/synergy-llm-gateway",
-    liveUrl: "https://synergy-gateway.vercel.app",
-    metrics: "Reduces API costs by 38%, 15ms semantic cache hits"
+    features: [
+      "Health monitoring",
+      "Sensor integration",
+      "Real-time analytics",
+      "AI predictions"
+    ],
+    githubUrl: "https://github.com/premwizard/Wearable-AI-Monitor-System",
+    metrics: "Smart health monitoring platform"
+  },
+
+  {
+    id: "voice-agent",
+    title: "Voice Agent",
+    tagline: "Conversational AI voice assistant with speech interaction.",
+    description:
+      "An AI voice assistant capable of understanding speech, processing user queries, and generating natural voice responses.",
+    fullDescription:
+      "Voice Agent combines speech-to-text, LLM-powered reasoning, and text-to-speech technologies to create a conversational AI assistant for real-time voice interactions.",
+    category: "Generative AI",
+    featured: false,
+    image: "/projects/voice-agent.png",
+    techStack: [
+      "Python",
+      "LLM",
+      "Speech-to-Text",
+      "Text-to-Speech",
+      "FastAPI"
+    ],
+    features: [
+      "Speech recognition",
+      "Natural conversations",
+      "Voice responses",
+      "LLM integration"
+    ],
+    githubUrl: "https://github.com/premwizard/Voice-Agent",
+    metrics: "Conversational AI assistant"
+  },
+
+  {
+    id: "progression-tracker",
+    title: "Progression Tracker",
+    tagline: "Track learning progress, goals, and productivity.",
+    description:
+      "A productivity platform that helps users monitor goals, visualize progress, and stay consistent through detailed analytics.",
+    fullDescription:
+      "Progression Tracker enables users to set milestones, monitor achievements, and analyze personal growth through intuitive dashboards and progress visualization.",
+    category: "Web Application",
+    featured: false,
+    image: "/projects/progression-tracker.png",
+    techStack: [
+      "React",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL"
+    ],
+    features: [
+      "Goal tracking",
+      "Progress analytics",
+      "Productivity dashboard",
+      "Performance insights"
+    ],
+    githubUrl: "https://github.com/premwizard/Progression-Tracker",
+    metrics: "Goal and productivity management"
   }
 ];
 
