@@ -237,6 +237,32 @@ export const ProjectsSection: React.FC = () => {
               </ul>
             </div>
 
+            {/* System Architecture Workflow Diagram */}
+            <div className="space-y-3 pt-2">
+              <h4 className="text-xs font-mono uppercase tracking-wider text-[#F1E3E4]">System Architecture Flow</h4>
+              <div className="p-4 rounded-xl bg-[#16171B] border border-[rgba(204,188,188,0.12)] flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-[#F1E3E4]">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[rgba(162,136,166,0.15)] border border-[#A288A6]/30">
+                  <span className="text-[#A288A6] font-bold">1. Ingestion</span>
+                  <span className="text-[11px] text-[#F1E3E4]/70">Raw Input / Data Stream</span>
+                </div>
+                <span className="text-[#A288A6] font-bold">➔</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[rgba(162,136,166,0.15)] border border-[#A288A6]/30">
+                  <span className="text-[#A288A6] font-bold">2. Processing</span>
+                  <span className="text-[11px] text-[#F1E3E4]/70">vLLM / Embeddings</span>
+                </div>
+                <span className="text-[#A288A6] font-bold">➔</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[rgba(162,136,166,0.15)] border border-[#A288A6]/30">
+                  <span className="text-[#A288A6] font-bold">3. Vector Search</span>
+                  <span className="text-[11px] text-[#F1E3E4]/70">HNSW Index</span>
+                </div>
+                <span className="text-[#A288A6] font-bold">➔</span>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#A288A6] text-[#1C1D21] font-bold">
+                  <span>4. Output</span>
+                  <span className="text-[11px]">Sub-40ms Response</span>
+                </div>
+              </div>
+            </div>
+
             {/* Tech Stack */}
             <div className="space-y-2">
               <h4 className="text-xs font-mono uppercase tracking-wider text-[#F1E3E4]">Tech Stack</h4>

@@ -61,6 +61,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { ThemeProvider } from "@/context/ThemeContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -97,7 +99,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#1C1D21] text-[#F1E3E4] antialiased min-h-screen relative selection:bg-[#A288A6]/30 selection:text-[#F1E3E4]">
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

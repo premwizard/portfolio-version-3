@@ -19,8 +19,8 @@ export interface SkillCategory {
   name: string;
   skills: {
     name: string;
-    level: number; // 0-100
-    experience: string; // e.g. "3+ yrs"
+    level?: number;
+    experience?: string;
     iconName?: string;
     popular?: boolean;
   }[];

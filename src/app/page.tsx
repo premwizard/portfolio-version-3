@@ -14,6 +14,7 @@ import { TestimonialsSection } from '@/components/testimonials/TestimonialsSecti
 import { ContactSection } from '@/components/contact/ContactSection';
 import { Footer } from '@/components/footer/Footer';
 import { CliTerminalModal } from '@/components/terminal/CliTerminalModal';
+import { HireModal } from '@/components/ui/HireModal';
 import { Terminal } from 'lucide-react';
 
 const SECTION_IDS = [
@@ -29,6 +30,7 @@ const SECTION_IDS = [
 
 export default function Home() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [isHireModalOpen, setIsHireModalOpen] = useState(false);
 
   // Initialize Lenis smooth scrolling
   useLenisScroll();
@@ -39,7 +41,11 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-primary overflow-x-hidden">
       {/* Sticky Top Navbar */}
-      <Navbar activeSection={activeSection} onOpenTerminal={() => setIsTerminalOpen(true)} />
+      <Navbar
+        activeSection={activeSection}
+        onOpenTerminal={() => setIsTerminalOpen(true)}
+        onOpenHireModal={() => setIsHireModalOpen(true)}
+      />
 
       {/* Sections */}
       <HeroSection />
@@ -66,8 +72,9 @@ export default function Home() {
         </span>
       </button>
 
-      {/* Interactive CLI Terminal Drawer */}
+      {/* Interactive Modals */}
       <CliTerminalModal isOpen={isTerminalOpen} onClose={() => setIsTerminalOpen(false)} />
+      <HireModal isOpen={isHireModalOpen} onClose={() => setIsHireModalOpen(false)} />
     </main>
   );
 }

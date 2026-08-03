@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Cpu, FileText, Terminal } from 'lucide-react';
+import { Menu, X, Cpu, FileText, Terminal, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '@/constants/portfolioData';
 import { Button } from '@/components/ui/Button';
 
 interface NavbarProps {
   activeSection: string;
   onOpenTerminal?: () => void;
+  onOpenHireModal?: () => void;
 }
 
 const NAV_ITEMS = [
@@ -22,7 +23,7 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection, onOpenTerminal }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, onOpenTerminal, onOpenHireModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -104,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onOpenTerminal })
           })}
         </nav>
 
-        {/* Action Button */}
+        {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-2.5">
           {onOpenTerminal && (
             <button
@@ -114,6 +115,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, onOpenTerminal })
             >
               <Terminal className="w-3.5 h-3.5" />
               <span>CLI</span>
+            </button>
+          )}
+          {onOpenHireModal && (
+            <button
+              onClick={onOpenHireModal}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#A288A6] text-[#1C1D21] font-mono font-bold text-xs hover:bg-[#BB9BB0] shadow-md transition-all cursor-pointer"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Hire Prem</span>
             </button>
           )}
           <Button

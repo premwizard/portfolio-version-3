@@ -3,9 +3,9 @@ import { Project, SkillCategory, ExperienceItem, CertificateItem, StatItem, Test
 export const PERSONAL_INFO = {
   name: "PREM M",
   avatar: "/profile.jpg",
-  title: "Staff AI & Systems Engineer",
+  title: "AI Engineer",
   roles: [
-    "AI Systems Engineer",
+    "AI Engineer",
     "LLM & RAG Architect",
     "Machine Learning Engineer",
     "Deep Learning Researcher",
@@ -14,8 +14,8 @@ export const PERSONAL_INFO = {
   bio: "Architecting high-throughput LLM pipelines, distributed vector search engines, and enterprise AI agent frameworks. Specialized in productionizing foundation models with microsecond latency.",
   about: "I am a Senior AI & Machine Learning Engineer with 6+ years of experience engineering scalable artificial intelligence systems, multi-agent frameworks, and high-performance backend infrastructure. Formerly leading ML infrastructure projects, I focus on bridging cutting-edge LLM research into low-latency production applications.",
   mission: "Democratizing state-of-the-art AI systems through clean architectural patterns, robust model optimization, and performant user experiences.",
-  location: "San Francisco, CA (Open to Remote)",
-  email: "alexander.vance.ai@gmail.com",
+  location: "Coimbatore, Tamil Nadu, India",
+  email: "mprem5032@gmail.com",
   github: "https://github.com/alexander-vance-ai",
   linkedin: "https://linkedin.com/in/alexander-vance-ai",
   leetcode: "https://leetcode.com/alexvance_ai",
@@ -51,74 +51,123 @@ export const STATS_DATA: StatItem[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    id: "ai-ml",
-    name: "AI & Deep Learning",
+    id: "ai-genai",
+    name: "AI & Generative AI",
     skills: [
-      { name: "PyTorch", level: 96, experience: "5+ yrs", popular: true },
-      { name: "Transformers (HuggingFace)", level: 94, experience: "4+ yrs", popular: true },
-      { name: "LangChain / LlamaIndex", level: 92, experience: "3+ yrs", popular: true },
-      { name: "TensorFlow / Keras", level: 88, experience: "4+ yrs" },
-      { name: "vLLM / TensorRT-LLM", level: 90, experience: "2+ yrs", popular: true },
-      { name: "OpenCV / Computer Vision", level: 85, experience: "3+ yrs" },
-      { name: "Vector DBs (Pinecone, Qdrant, Chroma)", level: 95, experience: "3+ yrs", popular: true },
+      { name: "Generative AI (GenAI)" },
+      { name: "Retrieval-Augmented Generation (RAG)" },
+      { name: "Prompt Engineering" },
+      { name: "LangChain" },
+      { name: "Google Agent Development Kit (ADK)" },
+      { name: "Ollama" },
+      { name: "ChromaDB" },
+      { name: "Artificial Intelligence" },
+      { name: "Machine Learning" },
     ]
   },
   {
     id: "languages",
-    name: "Core Languages",
+    name: "Programming Languages",
     skills: [
-      { name: "Python", level: 98, experience: "6+ yrs", popular: true },
-      { name: "TypeScript", level: 92, experience: "4+ yrs", popular: true },
-      { name: "JavaScript (ES6+)", level: 94, experience: "5+ yrs" },
-      { name: "C++", level: 82, experience: "3+ yrs" },
-      { name: "SQL", level: 90, experience: "5+ yrs" },
-    ]
-  },
-  {
-    id: "backend",
-    name: "Backend & Systems",
-    skills: [
-      { name: "FastAPI / Pydantic", level: 96, experience: "4+ yrs", popular: true },
-      { name: "Node.js / Express", level: 90, experience: "4+ yrs" },
-      { name: "gRPC & Protocol Buffers", level: 86, experience: "2+ yrs" },
-      { name: "REST APIs", level: 98, experience: "6+ yrs" },
-      { name: "Celery & Redis Async Queues", level: 89, experience: "4+ yrs" },
+      { name: "Python" },
+      { name: "TypeScript" },
+      { name: "JavaScript" },
+      { name: "SQL" },
+      { name: "MySQL" },
     ]
   },
   {
     id: "frontend",
-    name: "Frontend UI",
+    name: "Frontend Development",
     skills: [
-      { name: "React", level: 92, experience: "5+ yrs", popular: true },
-      { name: "Next.js 15", level: 90, experience: "3+ yrs", popular: true },
-      { name: "Tailwind CSS", level: 95, experience: "4+ yrs", popular: true },
-      { name: "Framer Motion", level: 88, experience: "2+ yrs" },
-      { name: "State Management (Zustand, Redux)", level: 90, experience: "4+ yrs" },
+      { name: "React.js" },
+      { name: "Next.js" },
+      { name: "Redux.js" },
+      { name: "Tailwind CSS" },
+      { name: "Bootstrap" },
     ]
   },
   {
-    id: "data-science",
-    name: "Data & MLOps",
+    id: "backend",
+    name: "Backend Development",
     skills: [
-      { name: "Pandas & NumPy", level: 95, experience: "6+ yrs" },
-      { name: "Scikit-learn", level: 92, experience: "5+ yrs" },
-      { name: "MLflow / Weights & Biases", level: 88, experience: "3+ yrs" },
-      { name: "DVC & Data Pipelines", level: 84, experience: "2+ yrs" },
-      { name: "Matplotlib & Seaborn", level: 90, experience: "5+ yrs" },
+      { name: "Django" },
+      { name: "Flask" },
+      { name: "Node.js" },
+      { name: "Prisma ORM" },
     ]
   },
   {
-    id: "databases-tools",
-    name: "Databases & DevOps",
+    id: "databases",
+    name: "Databases",
     skills: [
-      { name: "PostgreSQL / pgvector", level: 92, experience: "5+ yrs", popular: true },
-      { name: "MongoDB", level: 88, experience: "4+ yrs" },
-      { name: "Docker & Containerization", level: 94, experience: "5+ yrs", popular: true },
-      { name: "Git & GitHub Actions", level: 96, experience: "6+ yrs" },
-      { name: "Linux & Shell Scripting", level: 90, experience: "5+ yrs" },
-      { name: "Kubernetes", level: 80, experience: "2+ yrs" },
+      { name: "MongoDB" },
+      { name: "PostgreSQL (PgSQL)" },
+      { name: "MySQL" },
+      { name: "Firebase" },
+      { name: "Supabase" },
+      { name: "Redis" },
+      { name: "ChromaDB" },
     ]
-  }
+  },
+  {
+    id: "cloud",
+    name: "Cloud Platforms",
+    skills: [
+      { name: "Amazon Web Services (AWS)" },
+      { name: "Microsoft Azure" },
+    ]
+  },
+  {
+    id: "infrastructure",
+    name: "Networking & Infrastructure",
+    skills: [
+      { name: "Nginx" },
+      { name: "Reverse Proxy" },
+      { name: "Proxy Server" },
+      { name: "Microservices" },
+    ]
+  },
+  {
+    id: "realtime",
+    name: "Real-Time Communication",
+    skills: [
+      { name: "WebSocket" },
+      { name: "Socket.IO" },
+    ]
+  },
+  {
+    id: "apis",
+    name: "API Development & Testing",
+    skills: [
+      { name: "Postman API" },
+    ]
+  },
+  {
+    id: "version-control",
+    name: "Version Control",
+    skills: [
+      { name: "Git" },
+      { name: "GitHub" },
+    ]
+  },
+  {
+    id: "analytics",
+    name: "Data Analytics & BI",
+    skills: [
+      { name: "Microsoft Power BI" },
+      { name: "Tableau" },
+    ]
+  },
+  {
+    id: "design",
+    name: "UI/UX & Design",
+    skills: [
+      { name: "UI/UX" },
+      { name: "Figma" },
+      { name: "Canva" },
+    ]
+  },
 ];
 
 export const PROJECTS_DATA: Project[] = [
