@@ -42,17 +42,6 @@ export const HeroSection: React.FC = () => {
       >
         {/* Left Column: Text & CTA */}
         <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-          {/* Status Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4] shadow-sm"
-          >
-            <span className="w-2 h-2 rounded-full bg-[#A288A6] animate-ping" />
-            <span className="w-2 h-2 rounded-full bg-[#A288A6] -ml-4" />
-            <span>Available for AI Advisory & Lead Engineering</span>
-          </motion.div>
 
           {/* Name & Title */}
           <div className="space-y-2">
@@ -116,80 +105,27 @@ export const HeroSection: React.FC = () => {
             </Button>
           </motion.div>
 
-          {/* Social Links Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex items-center justify-center lg:justify-start gap-4 pt-4 border-t border-[rgba(204,188,188,0.15)]"
-          >
-            <span className="text-xs text-[rgba(241,227,228,0.6)] uppercase font-mono tracking-wider">Connect:</span>
-            <div className="flex items-center gap-3">
-              {[
-                { icon: <Github className="w-4 h-4" />, href: PERSONAL_INFO.github, label: 'GitHub' },
-                { icon: <Linkedin className="w-4 h-4" />, href: PERSONAL_INFO.linkedin, label: 'LinkedIn' },
-                { icon: <Mail className="w-4 h-4" />, href: `mailto:${PERSONAL_INFO.email}`, label: 'Email' },
-                { icon: <Code className="w-4 h-4" />, href: PERSONAL_INFO.leetcode, label: 'LeetCode' },
-              ].map((s, idx) => (
-                <a
-                  key={idx}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-9 h-9 rounded-full bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.15)] flex items-center justify-center text-[#A288A6] hover:text-[#BB9BB0] hover:border-[#A288A6]/40 hover:bg-[rgba(162,136,166,0.2)] transition-all duration-300"
-                >
-                  {s.icon}
-                </a>
-              ))}
-            </div>
-          </motion.div>
+          
         </div>
 
         {/* Right Column: Animated Profile & Floating Nodes */}
         <div className="lg:col-span-5 flex justify-center relative">
-          {/* Floating AI Node Icons */}
-          <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute -top-6 -left-4 z-20 glass-card px-3 py-2 rounded-[16px] border-[rgba(204,188,188,0.15)] flex items-center gap-2 shadow-lg"
-          >
-            <BrainCircuit className="w-4 h-4 text-[#A288A6] animate-pulse" />
-            <span className="text-xs font-mono text-[#F1E3E4]">vLLM & RAG</span>
-          </motion.div>
 
-          <motion.div
-            animate={{ y: [0, 14, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-            className="absolute top-1/2 -right-6 z-20 glass-card px-3 py-2 rounded-[16px] border-[rgba(204,188,188,0.15)] flex items-center gap-2 shadow-lg hidden sm:flex"
-          >
-            <Bot className="w-4 h-4 text-[#F1E3E4]" />
-            <span className="text-xs font-mono text-[#F1E3E4]">Multi-Agent</span>
-          </motion.div>
-
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-            className="absolute -bottom-4 left-6 z-20 glass-card px-3 py-2 rounded-[16px] border-[rgba(204,188,188,0.15)] flex items-center gap-2 shadow-lg"
-          >
-            <Terminal className="w-4 h-4 text-[#A288A6]" />
-            <span className="text-xs font-mono text-[#F1E3E4]">PyTorch & CUDA</span>
-          </motion.div>
 
           {/* Glowing Profile Avatar Container */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-[28px] p-1 bg-gradient-to-br from-[#A288A6]/40 via-[rgba(187,155,176,0.2)] to-transparent border border-[rgba(204,188,188,0.2)] shadow-2xl overflow-hidden group"
+            className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[440px] lg:h-[440px] rounded-[36px] p-1.5 bg-gradient-to-br from-[#A288A6]/40 via-[rgba(187,155,176,0.2)] to-transparent border border-[rgba(204,188,188,0.2)] shadow-2xl overflow-hidden group"
           >
-            <div className="w-full h-full rounded-[24px] overflow-hidden bg-[#1C1D21] relative">
+            <div className="w-full h-full rounded-[30px] overflow-hidden bg-[#1C1D21] relative">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
+                src={PERSONAL_INFO.avatar || "/profile.jpg"}
                 alt={PERSONAL_INFO.name}
-                className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                className="w-full h-full object-cover object-top brightness-85 contrast-90 saturate-[0.4] group-hover:brightness-100 group-hover:contrast-100 group-hover:saturate-100 group-hover:scale-110 transition-all duration-700 ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1D21]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1D21]/60 via-transparent to-transparent pointer-events-none" />
             </div>
           </motion.div>
         </div>

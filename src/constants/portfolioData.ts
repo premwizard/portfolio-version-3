@@ -2,6 +2,7 @@ import { Project, SkillCategory, ExperienceItem, CertificateItem, StatItem } fro
 
 export const PERSONAL_INFO = {
   name: "PREM M",
+  avatar: "/profile.jpg",
   title: "Staff AI & Systems Engineer",
   roles: [
     "AI Systems Engineer",
