@@ -758,5 +758,15 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     content: "I am delighted to recommend Prem for opportunities in AI Product Engineer. During his internship, Prem consistently demonstrated exceptional learning agility, adaptability, and a strong passion for emerging AI technologies. He quickly grasped new concepts, proactively took ownership of tasks, and showed a remarkable ability to apply his knowledge to real-world challenges. His dedication, curiosity, and continuous improvement mindset make him a promising AI Product Engineer. I am confident that Prem will be a valuable asset to any team and wish him great success in his professional journey.",
     rating: 5,
     linkedinUrl: "https://www.linkedin.com/in/gopinath-manickam-941415234/"
+  },
+  {
+    id: "test-3",
+    name: "Vanisree M",
+    role: "UI/UX Developer",
+    company: "7dots.space",
+    avatar: "",
+    content: "I highly recommend Prem. He is a talented and versatile professional with a strong eagerness to learn and execute. He brings solid knowledge and proven skills to everything he does in his field.",
+    rating: 5,
+    linkedinUrl: "https://www.linkedin.com/in/vanisree-m/"
   }
 ];

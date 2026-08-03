@@ -28,9 +28,13 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 relative bg-[#1C1D21]">
+    <section id="testimonials" className="py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 bg-[#1C1D21]">
+      {/* Decorative Low-Opacity Section Number 06 */}
+      <div className="absolute top-10 right-6 text-7xl sm:text-9xl font-extrabold text-[#F1E3E4]/[0.03] select-none font-mono pointer-events-none">
+        06
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <motion.div
@@ -38,17 +42,17 @@ export const TestimonialsSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-4 max-w-2xl"
+            className="space-y-3 max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
-              <Sparkles className="w-3.5 h-3.5 text-[#A288A6]" />
-              <span>Testimonials & Recommendations</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
+              <Quote className="w-3.5 h-3.5 text-[#A288A6]" />
+              <span>06. TESTIMONIALS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F1E3E4] tracking-tight">
-              What People <span className="bg-gradient-to-r from-[#F1E3E4] via-[#A288A6] to-[#BB9BB0] bg-clip-text text-transparent">Say About Me</span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F1E3E4] tracking-tight">
+              What People <span className="text-gradient">Say About Me</span>
             </h2>
-            <p className="text-[#F1E3E4]/70 text-base sm:text-lg">
-              Feedback from mentors, colleagues, clients, internship supervisors, and collaborators who have worked with me on AI and software development projects.
+            <p className="text-sm sm:text-base text-[rgba(241,227,228,0.85)] leading-relaxed">
+              Feedback from mentors, colleagues, internship supervisors, and collaborators on software projects.
             </p>
           </motion.div>
 

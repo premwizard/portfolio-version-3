@@ -92,6 +92,49 @@ body {
   transform: translateY(-2px);
 }
 
+/* Card Variations using strict existing palette */
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(204, 188, 188, 0.1);
+  border-radius: 16px;
+}
+
+.glass-card-featured {
+  background: rgba(162, 136, 166, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(162, 136, 166, 0.35);
+  border-radius: 28px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(162, 136, 166, 0.15);
+}
+
+.glass-card-outline {
+  background: rgba(28, 29, 33, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px stroke rgba(204, 188, 188, 0.18);
+  border-radius: 20px;
+}
+
+.glass-card-timeline {
+  background: rgba(28, 29, 33, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(187, 155, 176, 0.25);
+  border-radius: 24px;
+}
+
+/* Section Dividers */
+.section-divider {
+  height: 1px;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent 0%, rgba(204, 188, 188, 0.15) 30%, rgba(162, 136, 166, 0.3) 50%, rgba(204, 188, 188, 0.15) 70%, transparent 100%);
+}
+
 .glass-nav {
   background: rgba(28, 29, 33, 0.80);
   backdrop-filter: blur(20px);

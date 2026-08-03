@@ -37,17 +37,22 @@ export const ProjectsSection: React.FC = () => {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 bg-[#1C1D21]">
+    <section id="projects" className="py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 bg-[#1C1D21]">
+      {/* Decorative Low-Opacity Section Number 03 */}
+      <div className="absolute top-10 left-6 text-7xl sm:text-9xl font-extrabold text-[#F1E3E4]/[0.03] select-none font-mono pointer-events-none">
+        03
+      </div>
+
       {/* Section Header */}
-      <SectionReveal className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+      <SectionReveal className="text-center max-w-3xl mx-auto space-y-3 mb-14 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
           <FolderGit2 className="w-3.5 h-3.5 text-[#A288A6]" />
-          <span>Featured AI Innovations</span>
+          <span>03. FEATURED WORK</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F1E3E4] tracking-tight">
-          Production <span className="text-gradient">AI Systems & Systems Engineering</span>
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F1E3E4] tracking-tight">
+          Production <span className="text-gradient">AI Systems & Code</span>
         </h2>
-        <p className="text-base text-[rgba(241,227,228,0.85)] leading-relaxed">
+        <p className="text-sm sm:text-base text-[rgba(241,227,228,0.85)] leading-relaxed">
           Autonomous agents, multimodal search engines, and microsecond latency vector indexers built for scale.
         </p>
       </SectionReveal>
@@ -83,6 +88,58 @@ export const ProjectsSection: React.FC = () => {
           />
         </div>
       </SectionReveal>
+
+      {/* Featured Top Card Layout */}
+      {filteredProjects.length > 0 && selectedCategory === 'All' && !searchQuery && (
+        <SectionReveal className="mb-12">
+          <div
+            className="glass-card-featured group cursor-pointer p-8 transition-all hover:scale-[1.01] hover:border-[#A288A6] duration-500"
+            onClick={() => setActiveModalProject(filteredProjects[0])}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-6 relative h-64 sm:h-80 rounded-2xl overflow-hidden bg-[#1C1D21]">
+                <img
+                  src={filteredProjects[0].image}
+                  alt={filteredProjects[0].title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
+                />
+                <div className="absolute top-3 left-3 flex items-center gap-2">
+                  <Badge variant="accent" size="sm">
+                    {filteredProjects[0].category}
+                  </Badge>
+                  <Badge variant="secondary" size="sm" className="flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-[#A288A6]" />
+                    <span>Flagship System</span>
+                  </Badge>
+                </div>
+              </div>
+
+              <div className="lg:col-span-6 space-y-4">
+                <p className="text-xs font-mono text-[#A288A6] uppercase tracking-wider">★ Highlighted Project</p>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#F1E3E4] group-hover:text-[#BB9BB0] transition-colors flex items-center justify-between">
+                  <span>{filteredProjects[0].title}</span>
+                  <ArrowRight className="w-6 h-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-[#A288A6]" />
+                </h3>
+                <p className="text-sm text-[rgba(241,227,228,0.85)] leading-relaxed">
+                  {filteredProjects[0].fullDescription}
+                </p>
+                {filteredProjects[0].metrics && (
+                  <div className="inline-block px-3.5 py-1.5 rounded-lg bg-[rgba(162,136,166,0.15)] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#F1E3E4]">
+                    ⚡ {filteredProjects[0].metrics}
+                  </div>
+                )}
+                <div className="pt-2 flex flex-wrap gap-1.5">
+                  {filteredProjects[0].techStack.map((tech, idx) => (
+                    <span key={idx} className="px-2.5 py-1 text-xs font-mono rounded-md bg-[rgba(255,255,255,0.04)] border border-[rgba(204,188,188,0.15)] text-[#F1E3E4]">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </SectionReveal>
+      )}
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

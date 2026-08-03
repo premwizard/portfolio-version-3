@@ -49,12 +49,19 @@ export default function Home() {
 
       {/* Sections */}
       <HeroSection />
+      <div className="section-divider" />
       <AboutSection />
+      <div className="section-divider" />
       <SkillsSection />
+      <div className="section-divider" />
       <ProjectsSection />
+      <div className="section-divider" />
       <ExperienceSection />
+      <div className="section-divider" />
       <CertificatesSection />
+      <div className="section-divider" />
       <TestimonialsSection />
+      <div className="section-divider" />
       <ContactSection />
 
       {/* Footer */}
