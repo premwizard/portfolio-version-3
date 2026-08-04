@@ -62,6 +62,8 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/context/ThemeContext";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function RootLayout({
   children,
@@ -99,7 +101,11 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#1C1D21] text-[#F1E3E4] antialiased min-h-screen relative selection:bg-[#A288A6]/30 selection:text-[#F1E3E4]">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );
