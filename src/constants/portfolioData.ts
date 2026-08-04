@@ -917,5 +917,15 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     content: "I highly recommend Prem. He is a talented and versatile professional with a strong eagerness to learn and execute. He brings solid knowledge and proven skills to everything he does in his field.",
     rating: 5,
     linkedinUrl: "https://www.linkedin.com/in/vanisree-m/"
+  },
+  {
+    id: "test-4",
+    name: "ET Gaming - தமிழ்",
+    role: "Client",
+    company: "ETBros",
+    avatar: "",
+    content: "I had a great experience working with Prem on our website project for ET Gaming. From the beginning, he took the time to understand all of our requirements and made sure every detail was implemented as requested. He communicated clearly throughout the development process, was open to feedback, and quickly made any changes we needed. The quality of the website exceeded our expectations. It is modern, responsive, easy to use, and performs smoothly across different devices. Prem paid attention to both the design and functionality, ensuring the final product looked professional and worked exactly as we wanted. What impressed us the most was his dedication and commitment to delivering a project that truly satisfied our requirements. He was reliable, delivered on time, and maintained a professional attitude throughout the project. Overall, we are very satisfied with the service provided by Prem and would highly recommend him to anyone looking for a skilled and trustworthy web developer. We look forward to working with him again on future projects.",
+    rating: 5,
+    linkedinUrl: ""
   }
 ];
