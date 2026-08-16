@@ -31,28 +31,30 @@ export const PERSONAL_INFO = {
 export const STATS_DATA: StatItem[] = [
   {
     label: "Projects Built",
-    value: 20,
+    value: 28,
     suffix: "+",
     description: "AI, ML & Full-Stack applications"
   },
   {
-    label: "AI Applications",
-    value: 10,
-    suffix: "+",
-    description: "LLMs, RAG & intelligent automation"
-  },
-  {
-    label: "Technologies",
-    value: 40,
-    suffix: "",
-    description: "Languages, frameworks & cloud platforms"
-  },
-  {
     label: "GitHub Contributions",
-    value: 916,
-    suffix: "+", 
+    value: 1195,
+    suffix: "+",
     description: "Active development throughout 2026"
+  },
+  {
+    label: "LeetCode Problems",
+    value: 600,
+    suffix: "+",
+    description: "DSA problems solved across algorithms & data structures"
+  },
+
+  {
+    label: "Learning Streaks (days)",
+    value: 710,
+    suffix: "+",
+    description: "Combined activity across coding & learning platforms"
   }
+
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
@@ -927,5 +929,16 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     content: "I had a great experience working with Prem on our website project for ET Gaming. From the beginning, he took the time to understand all of our requirements and made sure every detail was implemented as requested. He communicated clearly throughout the development process, was open to feedback, and quickly made any changes we needed. The quality of the website exceeded our expectations. It is modern, responsive, easy to use, and performs smoothly across different devices. Prem paid attention to both the design and functionality, ensuring the final product looked professional and worked exactly as we wanted. What impressed us the most was his dedication and commitment to delivering a project that truly satisfied our requirements. He was reliable, delivered on time, and maintained a professional attitude throughout the project. Overall, we are very satisfied with the service provided by Prem and would highly recommend him to anyone looking for a skilled and trustworthy web developer. We look forward to working with him again on future projects.",
     rating: 5,
     linkedinUrl: ""
+  },
+  {
+    id: "test-5",
+    name: "Siva V",
+    role: "Full Stack Developer",
+    company: "SurgeonsLab",
+    avatar: "",
+    content: "I’ve had the opportunity to work with Prem and have been consistently impressed by his strong technical knowledge and problem-solving skills. He has a solid understanding of Full Stack and AI technologies, learns quickly, and approaches complex challenges with a practical mindset. I highly recommend Prem for roles where strong technical expertise, adaptability, and a passion for building innovative solutions are valued.",
+    rating: 5,
+    linkedinUrl: "https://www.linkedin.com/in/siva-v-30b86a210/"
   }
+
 ];
