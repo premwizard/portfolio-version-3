@@ -1,57 +1,60 @@
 import { NextResponse } from 'next/server';
 
-// In-memory global likes storage for server process
-let globalLikesMemory = 0;
+// Global shared memory counter on Next.js server
+let serverLikesCount = 0;
 
 export async function GET() {
   try {
-    const res = await fetch('https://api.counterapi.dev/v1/portfolio-prem-m-likes-v2/likes', {
+    const res = await fetch('https://api.counterapi.dev/v1/prem-m-portfolio/likes', {
       cache: 'no-store',
+      headers: { 'Cache-Control': 'no-cache' },
     });
     if (res.ok) {
       const data = await res.json();
       if (typeof data.count === 'number') {
-        globalLikesMemory = data.count;
-        return NextResponse.json({ count: data.count });
+        serverLikesCount = Math.max(serverLikesCount, data.count);
       }
     }
   } catch (error) {
-    console.error('CounterAPI fetch error:', error);
+    // Graceful fallback to server memory
   }
 
-  return NextResponse.json({ count: globalLikesMemory });
+  return NextResponse.json({ count: serverLikesCount });
 }
 
 export async function POST(request: Request) {
-  let action = 'up';
+  let action: 'up' | 'down' = 'up';
   try {
     const body = await request.json().catch(() => ({}));
     if (body && body.action === 'down') {
       action = 'down';
     }
+  } catch {}
 
+  // Update server memory immediately
+  if (action === 'down') {
+    serverLikesCount = Math.max(0, serverLikesCount - 1);
+  } else {
+    serverLikesCount += 1;
+  }
+
+  // Asynchronously sync with external counter service
+  try {
     const endpoint = action === 'down' ? 'down' : 'up';
-    const res = await fetch(`https://api.counterapi.dev/v1/portfolio-prem-m-likes-v2/likes/${endpoint}`, {
+    const res = await fetch(`https://api.counterapi.dev/v1/prem-m-portfolio/likes/${endpoint}`, {
       cache: 'no-store',
+      headers: { 'Cache-Control': 'no-cache' },
     });
 
     if (res.ok) {
       const data = await res.json();
       if (typeof data.count === 'number') {
-        globalLikesMemory = data.count;
-        return NextResponse.json({ count: data.count });
+        serverLikesCount = data.count;
       }
     }
   } catch (error) {
-    console.error('CounterAPI update error:', error);
+    // Keep local server count
   }
 
-  // Fallback memory update if remote API is unreachable
-  if (action === 'down') {
-    globalLikesMemory = Math.max(0, globalLikesMemory - 1);
-  } else {
-    globalLikesMemory += 1;
-  }
-
-  return NextResponse.json({ count: globalLikesMemory });
+  return NextResponse.json({ count: serverLikesCount });
 }

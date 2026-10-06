@@ -33,8 +33,8 @@ export const Footer: React.FC = () => {
     // Initial fetch
     fetchGlobalLikes();
 
-    // Poll every 4 seconds for real-time updates from other users
-    const pollInterval = setInterval(fetchGlobalLikes, 4000);
+    // Poll every 1.5 seconds so User A and User B see live changes instantly
+    const pollInterval = setInterval(fetchGlobalLikes, 1500);
 
     // Synchronize across tabs on same device
     const handleStorage = (e: StorageEvent) => {
