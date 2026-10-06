@@ -2,7 +2,7 @@ import { Project, SkillCategory, ExperienceItem, CertificateItem, StatItem, Test
 
 export const PERSONAL_INFO = {
   name: "PREM M",
-  avatar: "/profile.jpg",
+  avatar: "/mascot-3d.jpg",
   title: "AI Engineer | Full-Stack Developer",
   roles: [
     "AI Engineer",
@@ -451,6 +451,35 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
   {
     id: "exp-1",
     category: "Experience",
+    role: "AI Engineer",
+    organization: "Nano Nino Inc.",
+    location: "India",
+    period: "Aug 2026 - Present",
+    type: "Full Time",
+
+    description:
+      "Contributed to the development of AI-powered applications using Generative AI, Machine Learning, Deep Learning, and Large Language Models.",
+
+    highlights: [
+      "Built 4 AI-powered applications including MCP-based AI Agents, Text-to-Design AI, AI UI/UX Automation, and Workflow Automation.",
+      "Integrated LLMs, prompt engineering pipelines, backend APIs, and AI automation workflows.",
+      "Developed scalable and production-ready AI solutions in a collaborative development environment."
+    ],
+
+    technologies: [
+      "Python",
+      "LLMs",
+      "Generative AI",
+      "Machine Learning",
+      "Deep Learning",
+      "Prompt Engineering",
+      "Git"
+    ]
+  },
+
+  {
+    id: "exp-2",
+    category: "Experience",
     role: "AI Engineer Intern",
     organization: "ECLearnix Edtech Private Limited",
     location: "India",
@@ -478,7 +507,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
   },
 
   {
-    id: "exp-2",
+    id: "exp-3",
     category: "Experience",
     role: "Web Development Intern",
     organization: "Zidio Development",
@@ -505,7 +534,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
   },
 
   {
-    id: "exp-3",
+    id: "exp-4",
     category: "Experience",
     role: "Full Stack Python Developer Intern",
     organization: "Code Infinite Technology",
@@ -532,7 +561,7 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
   },
 
   {
-    id: "exp-4",
+    id: "exp-5",
     category: "Experience",
     role: "Machine Learning Intern",
     organization: "EMGLITZ Technologies",

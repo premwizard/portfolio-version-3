@@ -2,11 +2,12 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Github, Linkedin, Mail, Code, ArrowDown, FolderGit2, Download, Bot, BrainCircuit, Terminal } from 'lucide-react';
+import { Github, Linkedin, Mail, Code, ArrowDown, FolderGit2, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '@/constants/portfolioData';
 import { useVantaClouds } from '@/hooks/useVantaClouds';
 import { TypingText } from '@/components/animations/TypingText';
 import { Button } from '@/components/ui/Button';
+import { Mascot } from '@/components/ui/Mascot';
 
 export const HeroSection: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -135,25 +136,21 @@ export const HeroSection: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Right Column: Animated Profile & Floating Nodes */}
-        <div className="lg:col-span-5 flex justify-center relative">
+        {/* Right Column: Interactive Cursor-Tracking Mascot */}
+        <div className="lg:col-span-5 flex justify-center relative z-20">
 
-
-          {/* Glowing Profile Avatar Container */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[440px] lg:h-[440px] rounded-[36px] p-1.5 bg-gradient-to-br from-[#A288A6]/40 via-[rgba(187,155,176,0.2)] to-transparent border border-[rgba(204,188,188,0.2)] shadow-2xl overflow-hidden group"
+            className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[420px] lg:h-[420px] rounded-[36px] p-6 bg-gradient-to-br from-[#A288A6]/40 via-[rgba(187,155,176,0.2)] to-transparent border border-[rgba(204,188,188,0.2)] shadow-[0_20px_50px_rgba(162,136,166,0.25)] flex items-center justify-center overflow-visible group z-20"
           >
-            <div className="w-full h-full rounded-[30px] overflow-hidden bg-[#1C1D21] relative">
-              <img
-                src={PERSONAL_INFO.avatar || "/profile.jpg"}
-                alt={PERSONAL_INFO.name}
-                className="w-full h-full object-cover object-top brightness-85 contrast-90 saturate-[0.4] group-hover:brightness-100 group-hover:contrast-100 group-hover:saturate-100 group-hover:scale-110 transition-all duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1D21]/60 via-transparent to-transparent pointer-events-none" />
-            </div>
+            <Mascot
+              directions="/mascots/prem-directions.webp"
+              reactions="/mascots/prem-reactions.webp"
+              size={320}
+              label="PREM M Page Mascot"
+            />
           </motion.div>
         </div>
       </motion.div>
