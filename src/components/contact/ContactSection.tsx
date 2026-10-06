@@ -9,6 +9,7 @@ import { ContactFormData } from '@/types';
 import { SectionReveal } from '@/components/animations/SectionReveal';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import SlingButton from '@/components/ui/SlingButton';
 
 export const ContactSection: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -56,9 +57,7 @@ export const ContactSection: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const triggerSend = () => {
     if (!validate()) return;
 
     setIsSubmitting(true);
@@ -69,8 +68,8 @@ export const ContactSection: React.FC = () => {
       setIsSubmitted(true);
 
       confetti({
-        particleCount: 80,
-        spread: 70,
+        particleCount: 90,
+        spread: 80,
         origin: { y: 0.6 },
         colors: ['#A288A6', '#BB9BB0', '#F1E3E4', '#CCBCBC'],
       });
@@ -78,6 +77,11 @@ export const ContactSection: React.FC = () => {
       setFormData({ name: '', email: '', subject: '', message: '' });
       setErrors({});
     }, 1000);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    triggerSend();
   };
 
   return (
@@ -267,16 +271,48 @@ export const ContactSection: React.FC = () => {
                   {errors.message && <p className="text-[11px] text-red-400 font-mono">{errors.message}</p>}
                 </div>
 
-                {/* Submit Button */}
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="w-full"
-                  disabled={isSubmitting}
-                  icon={<Send className="w-4 h-4" />}
-                >
-                  {isSubmitting ? 'Transmitting Message...' : 'Send Message'}
-                </Button>
+                {/* SlingButton Main Send Trigger */}
+                <div className="pt-3">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 rounded-2xl bg-[rgba(162,136,166,0.1)] border border-[rgba(204,188,188,0.15)] shadow-lg backdrop-blur-sm">
+                    <div className="flex items-center gap-3 text-left">
+                      <div className="w-11 h-11 rounded-full bg-[rgba(162,136,166,0.2)] border border-[#A288A6]/40 flex items-center justify-center text-[#A288A6] shrink-0">
+                        <Send className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-mono font-bold text-[#F1E3E4]">
+                          {isSubmitting ? 'Transmitting Message...' : 'Slingshot To Send'}
+                        </h4>
+                        <p className="text-xs text-[rgba(241,227,228,0.75)] font-sans">
+                          Pull back & release the pad or tap to send your message
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="shrink-0 flex items-center justify-center pt-2 sm:pt-0">
+                      <SlingButton
+                        onSend={triggerSend}
+                        padColor="#A288A6"
+                        iconColor="#1C1D21"
+                        accentColor="#F1E3E4"
+                        wellColor="#27272a"
+                        bandColor="#52525b"
+                        size={56}
+                        strokeWidth={3}
+                        armAt={42}
+                        maxPull={150}
+                        launchSpeed={2600}
+                        recoil={0.2}
+                        flight={140}
+                        particles={18}
+                        spread={60}
+                        axis="any"
+                        tapSends={true}
+                        disabled={isSubmitting}
+                        ariaLabel="Slingshot message"
+                      />
+                    </div>
+                  </div>
+                </div>
               </form>
             )}
           </Card>

@@ -458,21 +458,24 @@ export const EXPERIENCES_DATA: ExperienceItem[] = [
     type: "Full Time",
 
     description:
-      "Contributed to the development of AI-powered applications using Generative AI, Machine Learning, Deep Learning, and Large Language Models.",
+      "Working as an AI Engineer in the Voice AI team, leading the development of intelligent conversational voice agents for an automated Golf Course Booking platform.",
 
     highlights: [
-      "Built 4 AI-powered applications including MCP-based AI Agents, Text-to-Design AI, AI UI/UX Automation, and Workflow Automation.",
-      "Integrated LLMs, prompt engineering pipelines, backend APIs, and AI automation workflows.",
-      "Developed scalable and production-ready AI solutions in a collaborative development environment."
+      "Engineered real-time Voice AI conversational agents for automated golf course tee-time reservations and inquiry handling.",
+      "Integrated low-latency Speech-to-Text (STT), LLM-powered dialogue reasoning, and natural Text-to-Speech (TTS) synthesis pipelines.",
+      "Developed function calling & API tool integrations enabling Voice AI agents to query real-time slot availability and process bookings.",
+      "Optimized intent recognition, context retention, and voice interaction latency to deliver a seamless booking experience."
     ],
 
     technologies: [
       "Python",
-      "LLMs",
-      "Generative AI",
-      "Machine Learning",
-      "Deep Learning",
-      "Prompt Engineering",
+      "Voice AI",
+      "LLMs & Generative AI",
+      "Speech-to-Text (STT)",
+      "Text-to-Speech (TTS)",
+      "Function Calling",
+      "FastAPI",
+      "REST APIs",
       "Git"
     ]
   },
