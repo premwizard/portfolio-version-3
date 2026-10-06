@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Send, CheckCircle2, MessageSquare, User, Sparkles, Phone, Copy, Check } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, MessageSquare, User, Sparkles, Phone, Copy, Check, Download } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { PERSONAL_INFO } from '@/constants/portfolioData';
 import { ContactFormData } from '@/types';
@@ -170,8 +170,6 @@ export const ContactSection: React.FC = () => {
                 </div>
               </div>
             </div>
-
-
           </Card>
         </SectionReveal>
 

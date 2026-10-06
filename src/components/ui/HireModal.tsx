@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, Send, CheckCircle2, Download, Briefcase, Mail, Phone, MapPin } from 'lucide-react';
+import { X, Sparkles, Send, CheckCircle2, Briefcase, Mail, Phone, MapPin } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { PERSONAL_INFO } from '@/constants/portfolioData';
 
@@ -39,27 +39,6 @@ export const HireModal: React.FC<HireModalProps> = ({ isOpen, onClose }) => {
       setMessage('');
       onClose();
     }, 2500);
-  };
-
-  const handleDownloadVCard = () => {
-    const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:${PERSONAL_INFO.name}
-TITLE:${PERSONAL_INFO.title}
-EMAIL;TYPE=INTERNET,HOME:${PERSONAL_INFO.email}
-ADR;TYPE=HOME:;;${PERSONAL_INFO.location}
-URL:${PERSONAL_INFO.github}
-NOTE:AI Engineer specializing in LLM Architecture, RAG, PyTorch & Deep Learning.
-END:VCARD`;
-
-    const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', `Prem_M_AI_Engineer.vcf`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   };
 
   return (
@@ -176,22 +155,13 @@ END:VCARD`;
                     />
                   </div>
 
-                  <div className="flex items-center gap-3 pt-2">
+                  <div className="pt-2">
                     <button
                       type="submit"
-                      className="flex-1 py-2.5 rounded-xl bg-[#A288A6] text-[#1C1D21] font-bold text-xs hover:bg-[#BB9BB0] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+                      className="w-full py-2.5 rounded-xl bg-[#A288A6] text-[#1C1D21] font-bold text-xs hover:bg-[#BB9BB0] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg"
                     >
                       <Send className="w-3.5 h-3.5" />
                       <span>Send Inquiry</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleDownloadVCard}
-                      className="px-3 py-2.5 rounded-xl bg-[#16171B] border border-[rgba(204,188,188,0.15)] text-xs font-mono text-[#A288A6] hover:bg-[rgba(162,136,166,0.2)] transition-all flex items-center gap-1.5"
-                      title="Save Prem's Contact Card (.vcf)"
-                    >
-                      <Download className="w-3.5 h-3.5" />
-                      <span>vCard</span>
                     </button>
                   </div>
                 </form>
