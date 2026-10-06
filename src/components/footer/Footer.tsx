@@ -9,23 +9,35 @@ export const Footer: React.FC = () => {
   const [liked, setLiked] = useState(false);
   const [count, setCount] = useState(0);
 
+  // Fetch latest global likes count from server
+  const fetchGlobalLikes = async () => {
+    try {
+      const res = await fetch('/api/likes', { cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json();
+        if (typeof data.count === 'number') {
+          setCount(data.count);
+        }
+      }
+    } catch (e) {
+      console.error('Failed to fetch global likes:', e);
+    }
+  };
+
   useEffect(() => {
     try {
-      // Remove old legacy key (which had 128 cached in browser storage)
-      localStorage.removeItem('portfolio_likes_count');
-      localStorage.removeItem('portfolio_liked');
-
       const savedLiked = localStorage.getItem('portfolio_v2_liked');
-      const savedCount = localStorage.getItem('portfolio_v2_likes_count');
       if (savedLiked !== null) setLiked(JSON.parse(savedLiked));
-      if (savedCount !== null) setCount(JSON.parse(savedCount));
     } catch {}
 
-    // Synchronize across tabs using storage event and BroadcastChannel
+    // Initial fetch
+    fetchGlobalLikes();
+
+    // Poll every 4 seconds for real-time updates from other users
+    const pollInterval = setInterval(fetchGlobalLikes, 4000);
+
+    // Synchronize across tabs on same device
     const handleStorage = (e: StorageEvent) => {
-      if (e.key === 'portfolio_v2_likes_count' && e.newValue !== null) {
-        setCount(JSON.parse(e.newValue));
-      }
       if (e.key === 'portfolio_v2_liked' && e.newValue !== null) {
         setLiked(JSON.parse(e.newValue));
       }
@@ -37,33 +49,50 @@ export const Footer: React.FC = () => {
       channel.onmessage = (event) => {
         if (event.data && typeof event.data.count === 'number') {
           setCount(event.data.count);
-          if (typeof event.data.liked === 'boolean') {
-            setLiked(event.data.liked);
-          }
         }
       };
     }
 
     window.addEventListener('storage', handleStorage);
     return () => {
+      clearInterval(pollInterval);
       window.removeEventListener('storage', handleStorage);
       if (channel) channel.close();
     };
   }, []);
 
-  const handleLikeChange = (nextLiked: boolean, nextCount: number) => {
+  const handleLikeChange = async (nextLiked: boolean) => {
+    // Optimistic UI update
+    const diff = nextLiked ? 1 : -1;
+    const newCount = Math.max(0, count + diff);
     setLiked(nextLiked);
-    setCount(nextCount);
+    setCount(newCount);
+
     try {
       localStorage.setItem('portfolio_v2_liked', JSON.stringify(nextLiked));
-      localStorage.setItem('portfolio_v2_likes_count', JSON.stringify(nextCount));
 
       if (typeof window !== 'undefined' && 'BroadcastChannel' in window) {
         const channel = new BroadcastChannel('portfolio_likes_channel');
-        channel.postMessage({ liked: nextLiked, count: nextCount });
+        channel.postMessage({ liked: nextLiked, count: newCount });
         channel.close();
       }
-    } catch {}
+
+      // Sync to global server database / endpoint
+      const res = await fetch('/api/likes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: nextLiked ? 'up' : 'down' }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (typeof data.count === 'number') {
+          setCount(data.count);
+        }
+      }
+    } catch (e) {
+      console.error('Failed to post like update:', e);
+    }
   };
 
   const scrollToTop = () => {
